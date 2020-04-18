@@ -1,0 +1,58 @@
+<!--
+创建问题界面前端文件
+author：郦洋
+-->
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>创建问题</title>
+  </head>
+  <body>
+    <div class="container">
+            <div class="col">
+              <form class="form-createq" action="/qas_system/createq/" method="post">
+                  {% csrf_token %}
+                  {% if message %}
+                    <div class="alert alert-warning">{{ message }}</div>
+                  {% endif %}
+
+                  <h3 class="text-center" style="height: 30px"> </h3>
+                  <h3 class="text-center" style="height: 40px">创建新的问题</h3>
+                  <div class="form-group">
+                    <label>标题：</label>
+                    <input type="text" name='title' class="form-control"
+                           placeholder="为你的问题取一个标题" autofocus required>
+                  </div>
+                  <div class="form-group">
+                    <label>具体描述：</label>
+                    <textarea name='text' class="form-control" rows="7" cols="80" required>具体描述你的问题，准确地描述问题更容易得到解答......</textarea>
+                  </div>
+                  <div class="form-group">
+                    <label>科目：</label>
+                    <input type="text" name='subject' class="form-control"
+                           placeholder="请填写问题所属的科目（教学信息服务网名称）" required>
+                  </div>
+                  <div>
+                    <button type="submit" class="btn btn-primary float-right">发布问题</button>
+                  </div>
+              </form>
+            </div>
+    </div> <!-- /container -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {#    以下三者的引用顺序是固定的#}
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

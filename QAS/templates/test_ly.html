@@ -1,0 +1,19 @@
+<!--
+模拟主页，只有一个创建新问题的功能键
+author：郦洋
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/qas_system/createq/">
+        {% csrf_token %}
+        <input type="submit" value="create a new question" />
+    </form>
+</body>
+</html>
