@@ -1,3 +1,5 @@
+<img src="/img-folder/dac8db0879f8b88c16d75336b1969aa.png" align="middle" />
+
 # 课业讨论系统
 ### 项目选定
 “课业讨论系统”网页开发。开发前端使用`html`、`js`及`css`实现，后端采用`django`框架，使用`python`语言进行实现。
