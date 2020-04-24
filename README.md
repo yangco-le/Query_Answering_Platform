@@ -1,4 +1,4 @@
-<img src="/img-folder/dac8db0879f8b88c16d75336b1969aa.png" align="middle" />
+<img src="https://github.com/yangco-le/query_answering_system/blob/master/img-folder/20200424182322.png" align="middle" />
 
 # 课业讨论系统
 ### 项目选定
