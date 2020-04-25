@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 
@@ -32,7 +32,7 @@ class Question(models.Model):
     属性：标题，具体描述，提问日期，浏览量，点赞量，科目，提问者
     '''
     question_title = models.CharField(verbose_name='标题', max_length=30, blank=False)
-    question_text = models.TextField(verbose_name='具体描述')
+    question_text = RichTextField(verbose_name='具体描述')
     question_subject = models.ForeignKey('Subject', verbose_name='科目', on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now=True, verbose_name='提问日期')
     page_views = models.IntegerField(default=0, verbose_name='浏览量')
@@ -51,7 +51,7 @@ class Comment(models.Model):
     '''
     reviewer = models.ForeignKey('User', verbose_name='评论者', on_delete=models.CASCADE)
     question = models.ForeignKey('Question', verbose_name='问题', on_delete=models.CASCADE)
-    comment_text = models.TextField(verbose_name='评论内容')
+    comment_text = RichTextField(verbose_name='评论内容')
     pub_date = models.DateTimeField(auto_now=True, verbose_name='评论时间')
     good_num = models.IntegerField(default=0, verbose_name='点赞量')
 

@@ -1,5 +1,7 @@
 Django==3.0.5
 asgiref==3.2.7
+django-ckeditor==5.9.0
+django-js-asset==1.2.2
 pip==20.0.2
 pytz==2019.3
 setuptools==40.8.0
