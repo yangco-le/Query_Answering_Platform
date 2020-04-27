@@ -1,0 +1,19 @@
+<!--问题筛选页面 黄海石-->
+
+<h1>请选择科目：</h1>
+<form action="{% url 'qas_system:selecting' %}" method="post">
+{% csrf_token %}
+<ul>
+{% for subject in all_subject %}
+    <input type="radio" name="subject" id="subject{{ forloop.counter }}" value="{{ subject.id }}">{{ subject.name }}
+    <p></p>
+{% endfor %}
+</ul>
+<h1>请选择排序方式：</h1>
+<ul>
+<input type="radio" name="sequencing" id="sequencing0" value="0">最多浏览<p></p>
+<input type="radio" name="sequencing" id="sequencing1" value="1">最多点赞<p></p>
+<input type="radio" name="sequencing" id="sequencing2" value="2">最新发布<p></p>
+</ul>
+<input type="submit" value="查询">
+</form>

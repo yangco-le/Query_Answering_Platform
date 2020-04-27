@@ -2,6 +2,9 @@
 模拟主页，只有一个创建新问题的功能键
 author：郦洋
 -->
+<!--
+加了 前往浏览所有问题页面和问题筛选页面的链接 黄海石
+-->
 
 
 <!DOCTYPE html>
@@ -15,5 +18,11 @@ author：郦洋
         {% csrf_token %}
         <input type="submit" value="create a new question" />
     </form>
+
+    <p></p>
+    <a href="/qas_system/all_question/", target="_self">浏览所有问题</a>
+    <p></p>
+    <a href="/qas_system/select/", target="_self">前往问题筛选页面</a>
+
 </body>
 </html>

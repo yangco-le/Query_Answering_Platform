@@ -1,0 +1,17 @@
+<!--所有问题浏览页面 黄海石-->
+
+{% if all_question_list %}
+    <ul>
+    {% for question in all_question_list %}
+        <li><a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}</a></li>
+        {{ question.pub_date }}<br>
+        {{ question.question_subject }}
+        <p></p>
+    {% endfor %}
+    <a href="/qas_system/", target="_self">返回主页</a>
+    </ul>
+{% else %}
+    <p>未找到结果，点击下面的链接返回。</p>
+    <a href="/qas_system/select/", target="_self">返回筛选页面</a>
+    <a href="/qas_system/", target="_self">返回主页</a>
+{% endif %}

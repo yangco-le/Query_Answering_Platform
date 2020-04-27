@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import QuestionPostForm
 from . import models
+from .models import Question, Subject
+from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
+from django.urls import reverse
 # Create your views here.
 
 
@@ -75,3 +78,48 @@ def create_question(request):
         context = {'question_post_form': question_post_form, 'subjects': subjects}
         # 返回模板
         return render(request, 'create_question.html', context)
+
+
+def select(request):
+    # 问题筛选页面
+    # 黄海石
+    all_subject = Subject.objects.all()
+    return render(request, 'select.html', {'all_subject': all_subject})
+
+
+def selecting(request):
+    # 黄海石
+    try:
+        a = request.POST['subject']
+        b = request.POST['sequencing']
+    except KeyError:
+        # 如果用户没有选科目或排序方式，则重新返回问题筛选结果页面
+        all_subject = Subject.objects.all()
+        return render(request, 'select.html', {'all_subject': all_subject})
+    return HttpResponseRedirect(reverse('qas_system:select_result', args=(int(b), int(a))))
+
+
+def select_result(request, sequencing, question_subject):
+    # 问题筛选结果页面
+    # 黄海石
+    if sequencing == 0:
+        select_result_list = Question.objects.filter(question_subject_id=question_subject).order_by('-page_views')
+    elif sequencing == 1:
+        select_result_list = Question.objects.filter(question_subject_id=question_subject).order_by('-good_num')
+    elif sequencing == 2:
+        select_result_list = Question.objects.filter(question_subject_id=question_subject).order_by('-pub_date')
+    else:
+        # 如果sequencing为0,1,2以外的值，则返回问题筛选结果页面
+        all_subject = Subject.objects.all()
+        return render(request, 'select.html', {'all_subject': all_subject})
+    context = {
+        'select_result_list': select_result_list,
+    }
+    return render(request, 'select_result.html', context)
+
+
+def all_question(request):
+    # 浏览所有问题页面 按照时间顺序
+    # 黄海石
+    all_question_list = Question.objects.all().order_by('-pub_date')
+    return render(request, 'all_question.html', {'all_question_list': all_question_list})
