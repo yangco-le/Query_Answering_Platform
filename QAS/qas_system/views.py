@@ -80,6 +80,44 @@ def create_question(request):
         return render(request, 'create_question.html', context)
 
 
+def update_question(request, id):
+    '''
+    修改问题网页后端
+    author：liyang
+    '''
+    question = models.Question.objects.get(id=id)
+    if request.method == "POST":
+        # 将提交的数据赋值到表单实例中
+        title = request.POST.get('question_title')
+        text = request.POST.get('question_text')
+        subject = request.POST.get('question_subject')
+        # 判断提交的数据是否满足模型的要求
+        if title.strip() and text.strip() and subject.strip():
+            question.question_title = title
+            question.question_text = text
+            question.question_subject = models.Subject.objects.get(name=subject)
+            question.save()
+            # print(new_q.question_text)
+            # 完成后返回到文章列表
+            return redirect('/qas_system/question/'+str(question.id))
+        # 如果数据不合法，返回错误信息
+        else:
+            subjects = models.Subject.objects.all()
+            question_post_form = QuestionPostForm()
+            message = "表单内容有误，请重新填写。"
+            context = {'question_post_form': question_post_form, 'subjects': subjects, 'message': message, 'question':question}
+            return render(request, 'update_question.html', context)
+        # 如果用户请求获取数据
+    else:
+        subjects = models.Subject.objects.all()
+        # 创建表单类实例
+        question_post_form = QuestionPostForm()
+        # 赋值上下文
+        context = {'question_post_form': question_post_form, 'subjects': subjects, 'question':question}
+        # 返回模板
+        return render(request, 'update_question.html', context)
+
+
 def select(request):
     # 问题筛选页面
     # 黄海石

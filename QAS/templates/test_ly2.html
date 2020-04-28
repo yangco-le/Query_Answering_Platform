@@ -26,12 +26,14 @@ author：郦洋
         <!-- 标题及作者 -->
         <h1 class="col-12 mt-4 mb-4">{{ question.question_title }}</h1>
         <div class="col-12 alert alert-success">提问者:{{ question.questioner }}
-            <a href="#" onclick="confirm_delete()">删除文章</a>
+            <a href="#" onclick="confirm_delete()">删除问题</a>
+            <a href="#" onclick="confirm_update()">修改问题</a>
         </div>
         <!-- 文章正文 -->
         <div class="col-12">
             <p>{{ question.question_text | safe }}</p>
         </div>
+
     </div>
     </div>
 
@@ -48,6 +50,24 @@ author：郦洋
             yes: function(index, layero) {
                 // 指定应当前往的 url
                 location.href="/qas_system/question-delete/{{ question.id }}"
+            },
+        })
+    }
+    </script>
+
+    <script>
+    // 删除文章的函数
+    function confirm_update() {
+        // 调用layer弹窗组件
+        layer.open({
+            // 弹窗标题
+            title: "确认修改",
+            // 正文
+            content: "确认要对该问题进行修改吗？",
+            // 点击确定按钮后调用的回调函数
+            yes: function(index, layero) {
+                // 指定应当前往的 url
+                location.href="/qas_system/updateq/{{ question.id }}"
             },
         })
     }
