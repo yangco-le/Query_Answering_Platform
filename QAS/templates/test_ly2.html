@@ -1,6 +1,9 @@
 <!--
 模拟问题页，有修改问题和删除问题的功能键
 author：郦洋
+
+问题页中加入点赞、举报、评论的功能键和评论的显示区
+author: 徐哲
 -->
 
 
@@ -32,6 +35,46 @@ author：郦洋
         <!-- 文章正文 -->
         <div class="col-12">
             <p>{{ question.question_text | safe }}</p>
+        </div>
+        <!-- 发表评论 -->
+        <hr>
+            <div>
+                <form
+                action="{% url 'qas_system:question_comment' question.id %}"
+                method="POST"
+                >
+                    {% csrf_token %}
+                        <div class="form-group">
+                            <label for="comment_text">
+                                <strong>
+                                    我也要发言：
+                                </strong>
+                            </label>
+                            <textarea
+                                type="text"
+                                class="form-control"
+                                id="comment_text"
+                                name="comment_text"
+                                rows="2"></textarea>
+                        </div>
+                        <!-- 提交按钮 -->
+                        <button type="submit" class="btn btn-primary ">发送</button>
+                </form>
+            </div>
+            <br>
+        <!-- 显示评论 -->
+        <h4>共有{{ comments.count }}条评论</h4>
+        <div>
+            {% for comment in comments %}
+                <hr>
+                <p>
+                    <span style="color: green">
+                        {{ comment.pub_date|date:"Y-m-d H:i:s" }}
+                    </span> ：
+                </p>
+                <pre style="font-family: inherit; font-size: 1em;">
+{{ comment.comment_text }}</pre>
+            {% endfor %}
         </div>
 
     </div>

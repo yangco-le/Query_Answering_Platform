@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .forms import QuestionPostForm
+from .forms import QuestionPostForm, CommentForm
 from . import models
-from .models import Question, Subject
+from .models import Question, Subject, Comment
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from django.urls import reverse
@@ -23,7 +23,8 @@ def test_questionpage_ly(request, id):
     author:liyang
     '''
     question = models.Question.objects.get(id=id)
-    context = {'question': question}
+    comments = Comment.objects.filter(question=id)
+    context = {'question': question, 'comments': comments}
     return render(request, 'test_ly2.html', context)
 
 
@@ -161,3 +162,25 @@ def all_question(request):
     # 黄海石
     all_question_list = Question.objects.all().order_by('-pub_date')
     return render(request, 'all_question.html', {'all_question_list': all_question_list})
+
+
+def question_comment(request, question_id):
+    '''
+    评论（问题）
+    author: 徐哲
+    '''
+    question = get_object_or_404(Question, id=question_id)
+
+    # 处理 POST 请求
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.question = question
+            new_comment.save()
+            return redirect(question)
+        else:
+            return HttpResponse("表单内容有误，请重新填写。")
+    # 处理错误请求
+    else:
+        return HttpResponse("发表评论仅接受POST请求。")

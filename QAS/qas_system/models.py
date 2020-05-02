@@ -1,5 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.urls import reverse
 # Create your models here.
 
 
@@ -42,6 +43,10 @@ class Question(models.Model):
     def __str__(self):
         return self.question_title
 
+# 获取问题详情页面的地址
+    def get_absolute_url(self):
+        return reverse('qas_system:question_detail', args=[self.id])
+
 
 class Comment(models.Model):
     '''
@@ -49,11 +54,13 @@ class Comment(models.Model):
     外键：评论者，问题
     属性：评论内容，评论时间，点赞量，评论者，问题
     '''
-    reviewer = models.ForeignKey('User', verbose_name='评论者', on_delete=models.CASCADE)
-    question = models.ForeignKey('Question', verbose_name='问题', on_delete=models.CASCADE)
+    question = models.ForeignKey('Question', verbose_name='问题', on_delete=models.CASCADE, related_name='comments')
     comment_text = RichTextField(verbose_name='评论内容')
     pub_date = models.DateTimeField(auto_now=True, verbose_name='评论时间')
     good_num = models.IntegerField(default=0, verbose_name='点赞量')
+
+    class Meta:
+        ordering = ('pub_date',)
 
     def __str__(self):
         return self.comment_text
