@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .forms import QuestionPostForm, CommentForm
+from .forms import QuestionPostForm, CommentForm, TipOffForm
 from . import models
-from .models import Question, Subject, Comment
+from .models import Question, Subject, Comment, Tipoff
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from django.urls import reverse
@@ -24,7 +24,8 @@ def test_questionpage_ly(request, id):
     '''
     question = models.Question.objects.get(id=id)
     comments = Comment.objects.filter(question=id)
-    context = {'question': question, 'comments': comments}
+    tipoffs = Tipoff.objects.filter(question=id)
+    context = {'question': question, 'comments': comments, 'tipoffs': tipoffs}
     return render(request, 'test_ly2.html', context)
 
 
@@ -178,6 +179,28 @@ def question_comment(request, question_id):
             new_comment = comment_form.save(commit=False)
             new_comment.question = question
             new_comment.save()
+            return redirect(question)
+        else:
+            return HttpResponse("表单内容有误，请重新填写。")
+    # 处理错误请求
+    else:
+        return HttpResponse("发表评论仅接受POST请求。")
+
+
+def question_tipoff(request, question_id):
+    '''
+    举报问题
+    author: 徐哲
+    '''
+    question = get_object_or_404(Question, id=question_id)
+
+    # 处理 POST 请求
+    if request.method == 'POST':
+        tipoff_form = TipOffForm(request.POST)
+        if tipoff_form.is_valid():
+            new_tipoff = tipoff_form.save(commit=False)
+            new_tipoff.question = question
+            new_tipoff.save()
             return redirect(question)
         else:
             return HttpResponse("表单内容有误，请重新填写。")

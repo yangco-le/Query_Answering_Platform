@@ -66,3 +66,18 @@ class Comment(models.Model):
         return self.comment_text
 
 
+class Tipoff(models.Model):
+    '''
+    举报类
+    外键：问题
+    属性：举报理由，举报时间
+    '''
+    question = models.ForeignKey('Question', verbose_name='问题', on_delete=models.CASCADE, related_name='tipoffs')
+    reason = RichTextField(verbose_name='举报理由')
+    tip_date = models.DateTimeField(auto_now=True, verbose_name='举报时间')
+
+    class Meta:
+        ordering = ('tip_date',)
+
+    def __str__(self):
+        return self.reason
