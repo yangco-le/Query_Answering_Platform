@@ -222,3 +222,36 @@ def question_good(request, question_id):
         return redirect(question)
     else:
         return HttpResponse("点赞仅接受POST请求。")
+
+def search(request):
+    '''
+    # 问题搜索页面
+    # 尹俊同
+    '''
+    return render(request, 'search.html',)
+
+def search_subject(request):
+    '''
+    # 按科目搜索问题
+    # 尹俊同
+    '''
+    sc = request.GET.get('search', None)
+    context = None
+    if sc:
+        print(sc)
+        question_list = Question.objects.filter(question_subject__name=sc)
+        context = {'question_list': question_list}
+    return render(request, 'search_subject.html', context)
+
+def search_keyword(request):
+    '''
+    # 按关键词搜索问题
+    # 尹俊同
+    '''
+    sc = request.GET.get('search', None)
+    context = None
+    if sc:
+        print(sc)
+        question_list = Question.objects.filter(question_title__icontains=sc)
+        context = {'question_list': question_list}
+    return render(request, 'search_keyword.html', context)
