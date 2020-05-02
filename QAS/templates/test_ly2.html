@@ -36,6 +36,24 @@ author: 徐哲
         <div class="col-12">
             <p>{{ question.question_text | safe }}</p>
         </div>
+
+        <!-- 给问题点赞 -->
+        <hr>
+            <div>
+                <form
+                action="{% url 'qas_system:question_good' question.id %}"
+                method="POST"
+                >
+                    {% csrf_token %}
+                        <!-- 点赞按钮 -->
+                        <button type="submit" class="btn btn-primary ">赞</button>
+                </form>
+            </div>
+            <br>
+
+        <!-- 显示问题赞的数量 -->
+        <h4>{{ question.good_num }}人觉得很赞</h4>
+
         <!-- 发表评论 -->
         <hr>
             <div>

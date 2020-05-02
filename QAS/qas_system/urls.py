@@ -21,4 +21,5 @@ urlpatterns = [
     path('all_question/', views.all_question),  # 浏览所有问题 按照时间顺序排列
     path('question-comment/<int:question_id>/', views.question_comment, name='question_comment'), # 问题评论
     path('question-tipoff/<int:question_id>/', views.question_tipoff, name='question_tipoff'), # 举报问题
+    path('question-good/<int:question_id>/', views.question_good, name='question_good'), # 点赞问题
 ]

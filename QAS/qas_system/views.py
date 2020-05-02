@@ -206,4 +206,19 @@ def question_tipoff(request, question_id):
             return HttpResponse("表单内容有误，请重新填写。")
     # 处理错误请求
     else:
-        return HttpResponse("发表评论仅接受POST请求。")
+        return HttpResponse("举报仅接受POST请求。")
+
+
+def question_good(request, question_id):
+    '''
+    给问题点赞
+    author: 徐哲
+    '''
+    question = get_object_or_404(Question, id=question_id)
+    # 处理 POST 请求
+    if request.method == 'POST':
+        question.good_num += 1
+        question.save()
+        return redirect(question)
+    else:
+        return HttpResponse("点赞仅接受POST请求。")
