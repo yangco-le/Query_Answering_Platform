@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/QAS/avatar/v2-812632c6d85b0f10cdd2bc21f962fc3a_r.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QAS/media/avatar/v2-812632c6d85b0f10cdd2bc21f962fc3a_r.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QAS/qas_system/migrations/0005_auto_20200504_1645.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QAS/qas_system/migrations/0006_auto_20200504_1705.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QAS/qas_system/migrations/0007_auto_20200504_1821.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QAS/static/bootstrap-combined.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QAS/static/layoutit.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QAS/templates/personal_homepage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QAS/templates/personal_homepage_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/query_answering_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/query_answering_system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/QAS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/QAS/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/QAS/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/QAS/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/qas_system/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/qas_system/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/qas_system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/qas_system/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,19 +42,52 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1b6bs5q1LULL3H2REz9FnnKJax1" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\24339\Desktop\repos\django_qas1\query_answering_system\QAS\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django server.Unnamed (1)">
+    <configuration name="Unnamed (1)" type="Python.DjangoServer" factoryName="Django server" nameIsGenerated="true">
+      <module name="query_answering_system" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="QAS.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="127.0.0.1" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="Python.DjangoServer" factoryName="Django server" nameIsGenerated="true">
       <module name="query_answering_system" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -83,6 +135,10 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Django server.Unnamed" />
+      <item itemvalue="Django server.Unnamed (1)" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -98,38 +154,55 @@
       <workItem from="1588390806557" duration="2322000" />
       <workItem from="1588405364446" duration="2797000" />
       <workItem from="1588408796223" duration="1306000" />
+      <workItem from="1588432962736" duration="17000" />
+      <workItem from="1588432994864" duration="324000" />
+      <workItem from="1588485838892" duration="1233000" />
+      <workItem from="1588557781428" duration="29043000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="96" y="0" width="1089" height="720" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588392017845">
-      <screen x="0" y="0" width="1280" height="720" />
+    <state x="115" y="0" width="1089" height="720" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588433093297">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="96" y="0" width="1089" height="720" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" timestamp="1588392017845" />
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom" timestamp="1588410110207">
-      <screen x="0" y="0" width="1280" height="720" />
+    <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1588433093297" />
+    <state x="474" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588571990528">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="474" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1588571990528" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1588607554498">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1588410110207" />
-    <state width="1237" height="176" key="GridCell.Tab.0.center" timestamp="1588410110207">
-      <screen x="0" y="0" width="1280" height="720" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588607554498" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1588607554498">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1588410110207" />
-    <state width="1237" height="176" key="GridCell.Tab.0.left" timestamp="1588410110207">
-      <screen x="0" y="0" width="1280" height="720" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588607554498" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1588607554498">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1588410110207" />
-    <state width="1237" height="176" key="GridCell.Tab.0.right" timestamp="1588410110207">
-      <screen x="0" y="0" width="1280" height="720" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588607554498" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1588607554498">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1588410110207" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1588391871216">
-      <screen x="0" y="0" width="1280" height="720" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588607554498" />
+    <state x="170" y="0" key="SettingsEditor" timestamp="1588578968700">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1587955742099" />
     <state x="142" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1588391871216" />
+    <state x="170" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588578968700" />
     <state x="325" y="185" key="com.intellij.ide.util.TipDialog" timestamp="1588408799144">
       <screen x="0" y="0" width="1280" height="720" />
     </state>

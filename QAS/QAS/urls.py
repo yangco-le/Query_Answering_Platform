@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('qas_system/', include(('qas_system.urls', 'qas_system'), namespace='qas_system')),
 ]
+
+# 让开发服务器能够处理图片
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

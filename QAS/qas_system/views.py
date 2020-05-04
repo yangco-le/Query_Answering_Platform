@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .forms import QuestionPostForm, CommentForm, TipOffForm
+from .forms import QuestionPostForm, CommentForm, TipOffForm, UserPageForm
 from . import models
 from .models import Question, Subject, Comment, Tipoff
 from django.http import HttpResponse, HttpResponseRedirect
@@ -223,12 +223,14 @@ def question_good(request, question_id):
     else:
         return HttpResponse("点赞仅接受POST请求。")
 
+
 def search(request):
     '''
     # 问题搜索页面
     # 尹俊同
     '''
     return render(request, 'search.html',)
+
 
 def search_subject(request):
     '''
@@ -243,6 +245,7 @@ def search_subject(request):
         context = {'question_list': question_list}
     return render(request, 'search_subject.html', context)
 
+
 def search_keyword(request):
     '''
     # 按关键词搜索问题
@@ -255,3 +258,45 @@ def search_keyword(request):
         question_list = Question.objects.filter(question_title__icontains=sc)
         context = {'question_list': question_list}
     return render(request, 'search_keyword.html', context)
+
+
+def userpage(request, id):
+    '''
+    显示用户主页
+    郦洋
+    '''
+    user = models.User.objects.get(id=id)
+    if request.method == "GET":
+        return render(request, 'personal_homepage.html', {'user': user})
+
+
+def userpage_edit(request, id):
+    '''
+    个人信息编辑
+    郦洋
+    '''
+    user = models.User.objects.get(id=id)
+    if request.method == "POST":
+        user_form = UserPageForm(request.POST, request.FILES)
+        if user_form.is_valid():
+            # 取得清洗后的合法数据
+            user_cd = user_form.cleaned_data
+            user.bio = user_cd['bio']
+            user.sex = user_cd['sex']
+            user.grade = user_cd['grade']
+            user.college = user_cd['college']
+            user.major = user_cd['major']
+            user.email = user_cd['email']
+            if 'avatar' in request.FILES:
+                user.avatar = user_cd["avatar"]
+            user.save()
+            # 带参数的 redirect()
+            return redirect('/qas_system/userpage/'+str(user.id))
+        else:
+            return HttpResponse("信息输入有误。请重新输入~")
+    else:
+        user_form = UserPageForm()
+        # 赋值上下文
+        context = {'user_form': user_form, 'user': user}
+        # 返回模板
+        return render(request, 'personal_homepage_edit.html', context)

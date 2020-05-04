@@ -2,8 +2,8 @@
 
 # 引入表单类
 from django import forms
-# 引入文章模型
-from .models import Question
+# 引入文章、用户模型
+from .models import Question, User
 # 引入评论、举报模型
 from .models import Comment, Tipoff
 
@@ -32,3 +32,9 @@ class TipOffForm(forms.ModelForm):
         model = Tipoff
         # 定义表单包含的字段
         fields = ['reason']
+
+
+class UserPageForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('avatar', 'bio', 'sex', 'grade', 'college', 'major', 'email')
