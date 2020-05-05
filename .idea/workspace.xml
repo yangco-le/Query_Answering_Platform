@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="" />
+    <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/media/avatar/shan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/qas_system/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/qas_system/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/templates/all_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/all_question.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/templates/personal_related_discuss.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/personal_related_discuss.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/select.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/templates/select_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/select_result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pushlog.md" beforeDir="false" afterPath="$PROJECT_DIR$/pushlog.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +164,8 @@
       <workItem from="1588557781428" duration="29043000" />
       <workItem from="1588645876799" duration="234000" />
       <workItem from="1588646130726" duration="10191000" />
-      <workItem from="1588666209251" duration="850000" />
+      <workItem from="1588666209251" duration="1526000" />
+      <workItem from="1588667754448" duration="1482000" />
     </task>
     <servers />
   </component>

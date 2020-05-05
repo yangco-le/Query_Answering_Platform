@@ -66,7 +66,7 @@ class Comment(models.Model):
     comment_text = RichTextField(verbose_name='评论内容')
     pub_date = models.DateTimeField(auto_now=True, verbose_name='评论时间')
     good_num = models.IntegerField(default=0, verbose_name='点赞量')
-    # 之前的版本里没有评论者 黄海石 2020年5月5日
+    # 之前的版本里没有评论者 黄海石2020年5月5日修改
     comment_person = models.ForeignKey('User', verbose_name='评论者', on_delete=models.CASCADE)
 
 

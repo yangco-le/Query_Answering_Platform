@@ -303,7 +303,7 @@ def userpage_edit(request, id):
 
 
 def userpage_related_discuss(request, id):
-    # 查看参与的讨论，分为提问和回答（评论）
+    # 查看参与的讨论，分为提问和回答
     # 黄海石
     my_ask = Question.objects.filter(questioner_id=id).order_by('-pub_date')
     my_answer_detail = Comment.objects.filter(comment_person=id).order_by('-pub_date')
