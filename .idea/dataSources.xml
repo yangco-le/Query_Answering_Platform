@@ -7,5 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\24339\Desktop\repos\query_answering_system\QAS\db.sqlite3</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="db [2]" uuid="04066512-ebef-4a1d-bd40-b030f8ff9f5f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:F:\all_install\pycharm-2019.3.3\Project\SE\query_answering_system\QAS\db.sqlite3</jdbc-url>
+    </data-source>
   </component>
 </project>

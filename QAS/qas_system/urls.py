@@ -26,5 +26,6 @@ urlpatterns = [
     path('search_subject/', views.search_subject),  # 按科目搜索问题
     path('search_keyword/', views.search_keyword, name='search_keyword'),  # 按关键字搜索问题
     path('userpage/<int:id>', views.userpage),  # 用户主页
-    path('userpage/edit/<int:id>', views.userpage_edit, name='user_edit')  # 个人信息编辑
+    path('userpage/edit/<int:id>', views.userpage_edit, name='user_edit'),  # 个人信息编辑
+    path('userpage/related_discuss/<int:id>', views.userpage_related_discuss),  # 用户主页
 ]

@@ -300,3 +300,12 @@ def userpage_edit(request, id):
         context = {'user_form': user_form, 'user': user}
         # 返回模板
         return render(request, 'personal_homepage_edit.html', context)
+
+
+def userpage_related_discuss(request, id):
+    # 查看参与的讨论，分为提问和回答（评论）
+    # 黄海石
+    my_ask = Question.objects.filter(questioner_id=id).order_by('-pub_date')
+    my_answer_detail = Comment.objects.filter(comment_person=id).order_by('-pub_date')
+    return render(request, 'personal_related_discuss.html',
+                  {'my_ask': my_ask, 'my_answer_detail': my_answer_detail})
