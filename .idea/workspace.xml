@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/QAS/media/avatar/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QAS/media/avatar/shan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QAS/qas_system/migrations/0008_comment_comment_person.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QAS/templates/personal_related_discuss.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/query_answering_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/query_answering_system.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/qas_system/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/qas_system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/qas_system/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/personal_homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/personal_homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/test_ly2.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/test_ly2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pushlog.md" beforeDir="false" afterPath="$PROJECT_DIR$/pushlog.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +154,7 @@
       <workItem from="1588485838892" duration="1233000" />
       <workItem from="1588557781428" duration="29043000" />
       <workItem from="1588645876799" duration="234000" />
-      <workItem from="1588646130726" duration="9194000" />
+      <workItem from="1588646130726" duration="9892000" />
     </task>
     <servers />
   </component>
