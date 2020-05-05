@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pushlog.md" beforeDir="false" afterPath="$PROJECT_DIR$/pushlog.md" afterDir="false" />
-    </list>
+    <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +35,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1b6bs5q1LULL3H2REz9FnnKJax1" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -154,7 +152,8 @@
       <workItem from="1588485838892" duration="1233000" />
       <workItem from="1588557781428" duration="29043000" />
       <workItem from="1588645876799" duration="234000" />
-      <workItem from="1588646130726" duration="9892000" />
+      <workItem from="1588646130726" duration="10191000" />
+      <workItem from="1588666209251" duration="453000" />
     </task>
     <servers />
   </component>
