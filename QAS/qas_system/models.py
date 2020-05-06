@@ -10,7 +10,7 @@ class User(models.Model):
     属性：用户名，密码
     与User类为一对一关系
     '''
-    user_name = models.CharField(verbose_name='用户名', max_length=30, blank=False)
+    user_name = models.CharField(verbose_name='用户名', max_length=30, blank=False, unique=True)
     password = models.CharField(verbose_name='密码', max_length=30, blank=False)
     avatar = models.ImageField(upload_to='avatar/', verbose_name='头像', blank=True, null=True)
     email = models.CharField(max_length=20, default='', verbose_name='邮箱', blank=True, null=True)
@@ -68,7 +68,6 @@ class Comment(models.Model):
     good_num = models.IntegerField(default=0, verbose_name='点赞量')
     # 之前的版本里没有评论者 黄海石2020年5月5日修改
     comment_person = models.ForeignKey('User', verbose_name='评论者', on_delete=models.CASCADE)
-
 
     class Meta:
         ordering = ('pub_date',)

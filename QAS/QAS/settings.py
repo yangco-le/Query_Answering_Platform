@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'qas_system',
     'ckeditor',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +116,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False  # 改为false让系统同步time_zone所设置的时间
 
 
 # Static files (CSS, JavaScript, Images)

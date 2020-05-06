@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .forms import QuestionPostForm, CommentForm, TipOffForm, UserPageForm
-from . import models
+from .forms import QuestionPostForm, CommentForm, TipOffForm, UserPageForm, UserLoginForm
+from . import models, forms
 from .models import Question, Subject, Comment, Tipoff
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
@@ -260,22 +260,24 @@ def search_keyword(request):
     return render(request, 'search_keyword.html', context)
 
 
-def userpage(request, id):
+def userpage(request):
     '''
     显示用户主页
     郦洋
     '''
-    user = models.User.objects.get(id=id)
+    # 徐哲修改了id的传入方式
+    user = models.User.objects.get(id=request.session['user_id'])
     if request.method == "GET":
         return render(request, 'personal_homepage.html', {'user': user})
 
 
-def userpage_edit(request, id):
+def userpage_edit(request):
     '''
     个人信息编辑
     郦洋
     '''
-    user = models.User.objects.get(id=id)
+    # 徐哲修改了id的传入方式
+    user = models.User.objects.get(id=request.session['user_id'])
     if request.method == "POST":
         user_form = UserPageForm(request.POST, request.FILES)
         if user_form.is_valid():
@@ -291,7 +293,7 @@ def userpage_edit(request, id):
                 user.avatar = user_cd["avatar"]
             user.save()
             # 带参数的 redirect()
-            return redirect('/qas_system/userpage/'+str(user.id))
+            return redirect('/qas_system/userpage/')
         else:
             return HttpResponse("信息输入有误。请重新输入~")
     else:
@@ -302,10 +304,56 @@ def userpage_edit(request, id):
         return render(request, 'personal_homepage_edit.html', context)
 
 
-def userpage_related_discuss(request, id):
+def userpage_related_discuss(request):
     # 查看参与的讨论，分为提问和回答
     # 黄海石
-    my_ask = Question.objects.filter(questioner_id=id).order_by('-pub_date')
-    my_answer_detail = Comment.objects.filter(comment_person=id).order_by('-pub_date')
+    # 徐哲修改了id的传入方式
+    my_ask = Question.objects.filter(questioner_id=request.session['user_id']).order_by('-pub_date')
+    my_answer_detail = Comment.objects.filter(comment_person=request.session['user_id']).order_by('-pub_date')
     return render(request, 'personal_related_discuss.html',
                   {'my_ask': my_ask, 'my_answer_detail': my_answer_detail})
+
+
+def user_login(request):
+    '''
+    用户登陆
+    徐哲
+    '''
+    if request.session.get('is_login', None):  # 防止重复登录
+        return redirect('/qas_system/')
+    if request.method == "POST":
+        login_form = forms.UserLoginForm(request.POST)
+        message = '请检查填写的内容！'
+        if login_form.is_valid():
+            username = login_form.cleaned_data.get('username')
+            password = login_form.cleaned_data.get('password')
+            try:
+                user = models.User.objects.get(user_name=username)
+            except:
+                message = '用户不存在！'
+                return render(request, 'login.html', locals())
+            if user.password == password:
+                request.session['is_login'] = True
+                request.session['user_id'] = user.id
+                request.session['user_name'] = user.user_name
+                return redirect('/qas_system/userpage/')
+            else:
+                message = '密码不正确！'
+                return render(request, 'login.html', locals())
+        else:
+            return render(request, 'login.html', locals())
+    login_form = forms.UserLoginForm()
+    return render(request, 'login.html', locals())
+
+
+def user_register(request):
+    pass
+    return render(request, 'register.html')
+
+
+def user_logout(request):
+    if not request.session.get('is_login', None):
+        # 检查是否处于登陆状态
+        return redirect('/qas_system/login/')
+    request.session.flush()
+    return redirect('/qas_system/login/')

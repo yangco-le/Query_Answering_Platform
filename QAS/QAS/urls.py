@@ -21,6 +21,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('qas_system/', include(('qas_system.urls', 'qas_system'), namespace='qas_system')),
+    path('captcha/', include('captcha.urls')),  # 提供登陆验证码的库
 ]
 
 # 让开发服务器能够处理图片
