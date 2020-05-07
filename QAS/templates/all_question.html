@@ -1,18 +1,63 @@
-<!--所有问题浏览页面 黄海石-->
+<!--所有问题浏览页面 黄海石，邵宇-->
+<!DOCTYP html >
+
+<html>
+
+<head>
+<title>所有问题页面</title>
+<style type="text/css">
+ body {background-size: 100%; }
+
+.button{  padding:6px;  color: #428bca; text-align: center; vertical-align: middle;  font-weight: 600; font-size:75% }
+.button{ background: gold; border: ridge gold; border-radius: 13em/3em; width: 100px; height: 25px;} 
+.all{  margin:0 auto;}
+.main{ padding:30px; }
+.questions{   width:500px; margin:0px 0px; line-height:24px; padding-left:10px;}
+.questions dl dd{ float:left; color:#464646; font-size:28px; font-weight:bold; line-height:48px;}
 
 
-{% if all_question_list %}
-    <ul>
-    {% for question in all_question_list %}
-        <li><a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}</a></li>
-        {{ question.pub_date }}<br>
-        {{ question.question_subject }}
-        <p></p>
-    {% endfor %}
-    <a href="/qas_system/", target="_self">返回主页</a>
-    </ul>
-{% else %}
-    <p>未找到结果，点击下面的链接返回。</p>
-    <a href="/qas_system/select/", target="_self">返回筛选页面</a>
-    <a href="/qas_system/", target="_self">返回主页</a>
-{% endif %}
+.questions ul li a{  no-repeat left center; padding-left:10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; width:210px; display:block;}
+.logo img{width:160px;height:150px}
+
+a:link{text-decoration:none; color:red;}
+.question_xx{background-color:#FFFFCC; margin:10px; padding:23px 1px 1px 1px; }
+li {line-height:22px; border: solid 2px #999999; background-color:#F0FFF0; margin: 20px; padding:5px}
+
+
+</style>
+</head>
+
+<body>
+<div class="all">
+        <div class="logo">
+        <img src="logo.png" alt="logo" />
+        </div>
+
+<div class="main">
+        <div class="questions">
+            <dl>
+                <dd>ALL QUESTIONS</dd>
+            </dl>
+        </div>
+        <div class="question_xx">
+
+                {% if all_question_list %}
+                <ul>
+                {% for question in all_question_list %}
+                    <li> <div class="p1"> <a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}<br></a> </div>
+                 <div class="p2">{{ question.pub_date }}<br></div>
+                 <div class="p3">{{ question.question_subject }} </div> </li>
+               <p></p>
+                {% endfor %}
+                <div class="button"> <a href="/qas_system/", target="_self">返回主页</a> </div>
+               </ul>
+                {% else %}
+              <p> 未找到结果, 点击下面的链接返回。</p> 
+
+                 <div class="button"> <a href="/qas_system/select/", target="_self">返回筛选页面</a> </div>
+                <div class="button"> <a href="/qas_system/", target="_self">返回主页</a> </div>
+                {% endif %}
+        </div>
+</div>
+</body>
+</html>
