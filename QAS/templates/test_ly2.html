@@ -88,6 +88,7 @@ author: 徐哲
             {% for comment in comments %}
                 <hr>
                 <p>
+                <img width="80" height="80" src="{{ comment.comment_person.avatar.url }}" class="img-circle"/>
                     <span style="color: green">
                         {{ comment.pub_date|date:"Y-m-d H:i:s" }}<br>
                         {{ comment.comment_person }}
@@ -125,20 +126,8 @@ author: 徐哲
             </div>
             <br>
 
-        <!-- 显示举报理由 -->
+        <!-- 显示被举报次数 -->
         <h4>共被举报{{ tipoffs.count }}次</h4>
-        <div>
-            {% for tipoff in tipoffs %}
-                <hr>
-                <p>
-                    <span style="color: green">
-                        {{ tipoff.tip_date|date:"Y-m-d H:i:s" }}
-                    </span> ：
-                </p>
-                <pre style="font-family: inherit; font-size: 1em;">
-{{ tipoff.reason }}</pre>
-            {% endfor %}
-        </div>
 
     </div>
     </div>

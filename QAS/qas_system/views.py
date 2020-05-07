@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import QuestionPostForm, CommentForm, TipOffForm, UserPageForm, UserLoginForm
 from . import models, forms
-from .models import Question, Subject, Comment, Tipoff
+from .models import Question, Subject, Comment, Tipoff, User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from django.urls import reverse
@@ -33,9 +33,15 @@ def question_delete(request, id):
     '''
     删除问题后端
     author:liyang
+    # 徐哲修改：与用户关联，用户只能删除自己创建的问题
     '''
     # 根据 id 获取需要删除的文章
     question = models.Question.objects.get(id=id)
+    # 检查是否处于登陆状态
+    if not request.session.get('is_login', None):
+        return redirect('/qas_system/login/')
+    if question.questioner.id != request.session['user_id']:
+        return HttpResponse("你只能删除自己创建的问题。")
     # 调用.delete()方法删除文章
     question.delete()
     return redirect("/qas_system/")
@@ -45,7 +51,11 @@ def create_question(request):
     '''
     创建问题网页后端
     author：liyang
+    # 徐哲修改：与用户关联，登陆的用户才能创建问题
     '''
+    if not request.session.get('is_login', None):
+        # 检查是否处于登陆状态
+        return redirect('/qas_system/login/')
     if request.method == "POST":
         # 将提交的数据赋值到表单实例中
         title = request.POST.get('question_title')
@@ -58,7 +68,7 @@ def create_question(request):
             new_q.question_title = title
             new_q.question_text = text
             new_q.question_subject = models.Subject.objects.get(name=subject)
-            new_q.questioner = models.User.objects.get(user_name='anonymity')  # 暂时认定只有一个匿名用户
+            new_q.questioner = (User(id=request.session['user_id']))
             new_q.pub_date = timezone.now()
             new_q.save()
             # print(new_q.question_text)
@@ -86,8 +96,14 @@ def update_question(request, id):
     '''
     修改问题网页后端
     author：liyang
+    # 徐哲修改：与用户关联，用户只能修改自己创建的问题
     '''
     question = models.Question.objects.get(id=id)
+    if not request.session.get('is_login', None):
+        # 检查是否处于登陆状态
+        return redirect('/qas_system/login/')
+    if question.questioner.id != request.session['user_id']:
+        return HttpResponse("你只能修改自己创建的问题。")
     if request.method == "POST":
         # 将提交的数据赋值到表单实例中
         title = request.POST.get('question_title')
@@ -171,6 +187,9 @@ def question_comment(request, question_id):
     author: 徐哲
     '''
     question = get_object_or_404(Question, id=question_id)
+    if not request.session.get('is_login', None):
+        # 检查是否处于登陆状态
+        return redirect('/qas_system/login/')
 
     # 处理 POST 请求
     if request.method == 'POST':
@@ -178,10 +197,11 @@ def question_comment(request, question_id):
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.question = question
+            new_comment.comment_person = (User(id=request.session['user_id']))
             new_comment.save()
             return redirect(question)
         else:
-            return HttpResponse("表单内容有误，请重新填写。")
+            return HttpResponse("内容有误，请重新填写。")
     # 处理错误请求
     else:
         return HttpResponse("发表评论仅接受POST请求。")
@@ -193,6 +213,9 @@ def question_tipoff(request, question_id):
     author: 徐哲
     '''
     question = get_object_or_404(Question, id=question_id)
+    if not request.session.get('is_login', None):
+        # 检查是否处于登陆状态
+        return redirect('/qas_system/login/')
 
     # 处理 POST 请求
     if request.method == 'POST':
@@ -200,10 +223,11 @@ def question_tipoff(request, question_id):
         if tipoff_form.is_valid():
             new_tipoff = tipoff_form.save(commit=False)
             new_tipoff.question = question
+            new_tipoff.tipoff_person = (User(id=request.session['user_id']))
             new_tipoff.save()
             return redirect(question)
         else:
-            return HttpResponse("表单内容有误，请重新填写。")
+            return HttpResponse("内容有误，请重新填写。")
     # 处理错误请求
     else:
         return HttpResponse("举报仅接受POST请求。")
@@ -215,6 +239,9 @@ def question_good(request, question_id):
     author: 徐哲
     '''
     question = get_object_or_404(Question, id=question_id)
+    if not request.session.get('is_login', None):
+        # 检查是否处于登陆状态
+        return redirect('/qas_system/login/')
     # 处理 POST 请求
     if request.method == 'POST':
         question.good_num += 1
@@ -352,6 +379,10 @@ def user_register(request):
 
 
 def user_logout(request):
+    '''
+    用户登出
+    徐哲
+    '''
     if not request.session.get('is_login', None):
         # 检查是否处于登陆状态
         return redirect('/qas_system/login/')

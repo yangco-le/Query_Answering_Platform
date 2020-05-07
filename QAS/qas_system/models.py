@@ -67,7 +67,7 @@ class Comment(models.Model):
     pub_date = models.DateTimeField(auto_now=True, verbose_name='评论时间')
     good_num = models.IntegerField(default=0, verbose_name='点赞量')
     # 之前的版本里没有评论者 黄海石2020年5月5日修改
-    comment_person = models.ForeignKey('User', verbose_name='评论者', on_delete=models.CASCADE)
+    comment_person = models.ForeignKey('User', verbose_name='评论者', on_delete=models.CASCADE, related_name='comments')
 
     class Meta:
         ordering = ('pub_date',)
@@ -82,6 +82,7 @@ class Tipoff(models.Model):
     外键：问题
     属性：举报理由，举报时间
     '''
+    tipoff_person = models.ForeignKey('User', verbose_name='举报者', on_delete=models.CASCADE, related_name='tipoffs')
     question = models.ForeignKey('Question', verbose_name='问题', on_delete=models.CASCADE, related_name='tipoffs')
     reason = RichTextField(verbose_name='举报理由')
     tip_date = models.DateTimeField(auto_now=True, verbose_name='举报时间')
