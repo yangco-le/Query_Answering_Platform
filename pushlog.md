@@ -29,3 +29,8 @@
 ### 2.添加了用户注册类user_register在views.py中，添加register.html。
 ### 3.在forms.py中新增用户注册表单类UserRegisterForm。
 ### 4.注册了可登录用户实例：姓名：百里；密码：baili。
+
+# 2020年5月9日 黄海石
+### 1 增加了图片"default0.jpg"（路径：/QAS/media/avatar/default0.jpg）作为没有上传头像的用户的暂时的头像
+### 2 之前一个问题下若有一个回答者没有头像，则该问题页面会报错。现已修复
+### 3 增加了个人主页查看收藏的问题功能

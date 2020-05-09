@@ -19,6 +19,8 @@ class User(models.Model):
     major = models.CharField(max_length=20, default='', verbose_name='专业', blank=True, null=True)
     grade = models.CharField(max_length=20, default='', verbose_name='年级', blank=True, null=True)
     sex = models.CharField(max_length=2, default='', verbose_name='性别', blank=True, null=True)
+    # 新加了多对多关系：收藏的问题 黄海石 2020年5月9日
+    collect_question = models.ManyToManyField('Question')
 
     def __str__(self):
         return self.user_name

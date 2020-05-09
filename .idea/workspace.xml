@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/QAS/media/avatar/default0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QAS/qas_system/migrations/0017_user_collect_question.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QAS/templates/personal_collect_question.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QAS/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/media/avatar/shan.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/QAS/qas_system/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/qas_system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QAS/qas_system/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/all_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/all_question.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/templates/personal_homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/personal_homepage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QAS/templates/personal_related_discuss.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/personal_related_discuss.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/select.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/select_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/select_result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/templates/test_ly2.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/test_ly2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pushlog.md" beforeDir="false" afterPath="$PROJECT_DIR$/pushlog.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,6 +180,7 @@
       <workItem from="1588820530800" duration="4007000" />
       <workItem from="1588827616774" duration="79000" />
       <workItem from="1588829459538" duration="242000" />
+      <workItem from="1589007236952" duration="7965000" />
     </task>
     <servers />
   </component>
@@ -256,5 +259,9 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="278" y="133" width="917" height="502" key="dock-window-1/0.0.1280.720@0.0.1280.720" timestamp="1588688746785" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1589013317589">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1589013317589" />
   </component>
 </project>

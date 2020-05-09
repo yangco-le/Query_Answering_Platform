@@ -428,3 +428,11 @@ def user_logout(request):
         return redirect('/qas_system/login/')
     request.session.flush()
     return redirect('/qas_system/login/')
+
+
+def userpage_collect_question(request):
+    # 查看收藏的问题
+    # 黄海石
+    u = User.objects.get(id=request.session['user_id'])
+    my_collect = u.collect_question.all()
+    return render(request, 'personal_collect_question.html', {'my_collect': my_collect})

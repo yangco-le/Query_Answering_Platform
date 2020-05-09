@@ -88,7 +88,11 @@ author: 徐哲
             {% for comment in comments %}
                 <hr>
                 <p>
-                <img width="80" height="80" src="{{ comment.comment_person.avatar.url }}" class="img-circle"/>
+                {% if comment.comment_person.avatar %}
+                    <img width="80" height="80" src="{{ comment.comment_person.avatar.url }}" class="img-circle"/>
+                {% else %}
+                    <img width="80" height="80" src="/media/avatar/default0.jpg" class="img-circle"/>
+                {% endif %}
                     <span style="color: green">
                         {{ comment.pub_date|date:"Y-m-d H:i:s" }}<br>
                         {{ comment.comment_person }}

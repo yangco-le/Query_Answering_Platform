@@ -31,4 +31,5 @@ urlpatterns = [
     path('userpage/', views.userpage, name='userpage'),  # 用户主页
     path('userpage/edit/', views.userpage_edit, name='user_edit'),  # 个人信息编辑
     path('userpage/related_discuss/', views.userpage_related_discuss),  # 查看参与的讨论
+    path('userpage/collect_question/', views.userpage_collect_question),  # 查看收藏的问题
 ]
