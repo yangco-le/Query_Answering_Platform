@@ -345,6 +345,7 @@ def user_login(request):
     '''
     用户登陆
     徐哲
+    在login.html中添加到新用户注册的路径 尹俊同
     '''
     if request.session.get('is_login', None):  # 防止重复登录
         return redirect('/qas_system/')
