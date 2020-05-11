@@ -45,5 +45,6 @@
 ### 1 将models中Question的浏览量从IntegerField改为PositiveIntegerField
 ### 2 实现问题浏览一次，浏览量加一
 ### 3 在很多页面中显示浏览量，包括所有问题页面、收藏问题页面、参与的讨论页面、
-###   按关键词/学科搜索问题页面、筛选问题结果页面、问题测试页面（test_ly2.html）
-### 4 修改了test_ly2.html，如果浏览者不是提问者，则不显示“删除问题”“修改问题”链接
+###   按关键词/学科搜索问题页面、筛选问题结果页面、问题测试页面（test_ly2.html和question_detail.html）
+### 4 修改了test_ly2.html和question_detail.html，如果浏览者不是提问者，则不显示“删除问题”“修改问题”链接
+### 5 修复了question_detail.html和之前一样的问题：若有一个回答者没有头像，则该问题页面会报错

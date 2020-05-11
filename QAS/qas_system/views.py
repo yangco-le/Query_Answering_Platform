@@ -36,7 +36,7 @@ def test_questionpage_ly(request, id):
     # 在html文件中实现：如果浏览的不是提问者，则不显示“删除问题”“修改问题”链接
     user = models.User.objects.get(id=request.session['user_id'])
     context = {'question': question, 'comments': comments, 'tipoffs': tipoffs, 'user': user}
-    return render(request, 'test_ly2.html', context)
+    return render(request, 'question_detail.html', context)
 
 
 def question_delete(request, id):

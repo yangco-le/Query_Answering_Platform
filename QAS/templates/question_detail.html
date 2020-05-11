@@ -38,14 +38,17 @@ author： 汤峻侬
 											<span class="sub"><a href="#">{{ question.question_subject }}</a></span>
 											<span class="date">{{ question.pub_date }}</span>
 											<span class="questioner">By <a href="#">{{ question.questioner }}</a></span>
+                                            <span class="questioner"><a href="#">浏览量：{{ question.page_views }}</a></span>
 										</p>
                                         <!-- 问题的标题和内容 -->
 										<h2><a href="#">{{ question.question_title }}</a></h2>
                                         <p>{{ question.question_text | safe }}</p>
                                         <div class="row justify-content-end ">
                                             <div class="col-4"></div>
-                                            <div class="col-2" onclick="confirm_update()"><button type="button" class="btn btn-outline-secondary">更新问题</button></div>
-                                            <div class="col-2"><button type="button" onclick="confirm_delete()" class="btn btn-outline-secondary">删除问题</button></div>
+                                            {% if user == question.questioner %}
+                                                <div class="col-2" onclick="confirm_update()"><button type="button" class="btn btn-outline-secondary">更新问题</button></div>
+                                                <div class="col-2"><button type="button" onclick="confirm_delete()" class="btn btn-outline-secondary">删除问题</button></div>
+                                            {% endif %}
                                         </div>
                                     </div>
 
@@ -59,7 +62,11 @@ author： 汤峻侬
 
                                 {% for commenti in comments %}
                                     <div class="review">
-                                    <div class="user-img" style="background-image: url('{{commenti.comment_person.avatar.url}}'); background-size: contain " > </div>
+                                    {% if commenti.comment_person.avatar %}
+                                        <div class="user-img" style="background-image: url('{{commenti.comment_person.avatar.url}}'); background-size: contain " > </div>
+                                    {% else %}
+                                        <img width="80" height="80" src="/media/avatar/default0.jpg" class="img-circle"/>
+                                    {% endif %}
                                     <div class="desc py-3">
                                         <h4>
                                             <span class="text-left"><strong>{{commenti.comment_person}}</strong></span>
