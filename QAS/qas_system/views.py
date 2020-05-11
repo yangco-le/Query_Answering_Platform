@@ -26,7 +26,7 @@ def test_questionpage_ly(request, id):
     comments = Comment.objects.filter(question=id)
     tipoffs = Tipoff.objects.filter(question=id)
     context = {'question': question, 'comments': comments, 'tipoffs': tipoffs}
-    return render(request, 'test_ly2.html', context)
+    return render(request, 'question_detail.html', context)
 
 
 def question_delete(request, id):
