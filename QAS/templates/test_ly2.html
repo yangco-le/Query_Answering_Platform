@@ -29,8 +29,11 @@ author: 徐哲
         <!-- 标题及作者 -->
         <h1 class="col-12 mt-4 mb-4">{{ question.question_title }}</h1>
         <div class="col-12 alert alert-success">提问者:{{ question.questioner }}
-            <a href="#" onclick="confirm_delete()">删除问题</a>
-            <a href="#" onclick="confirm_update()">修改问题</a>
+            <br>浏览量：{{ question.page_views }}<br>
+            {% if user == question.questioner %}
+                <a href="#" onclick="confirm_delete()">删除问题</a>
+                <a href="#" onclick="confirm_update()">修改问题</a>
+            {% endif %}
         </div>
         <!-- 文章正文 -->
         <div class="col-12">

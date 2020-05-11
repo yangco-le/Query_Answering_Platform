@@ -6,7 +6,8 @@
     {% for question in select_result_list %}
         <li><a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}</a></li>
         {{ question.pub_date }}<br>
-        {{ question.question_subject }}
+        {{ question.question_subject }}<br>
+        浏览量：{{ question.page_views }}
         <p></p>
     {% endfor %}
     <a href="/qas_system/select/", target="_self">返回筛选页面</a>

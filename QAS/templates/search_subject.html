@@ -17,10 +17,13 @@
    </form>
    {% if question_list %}
    {% for question in question_list %}
-
        <li><a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}</a></li>
-
+       {{ question.pub_date }}<br>
+       {{ question.question_subject }}<br>
+       浏览量：{{ question.page_views }}
    {% endfor %}
    {% endif %}
+<br><br>
+<a href="/qas_system/", target="_self">返回主页</a>
 </body>
 </html>

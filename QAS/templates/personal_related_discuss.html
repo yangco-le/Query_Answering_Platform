@@ -5,7 +5,8 @@
     {% for question in my_ask %}
         <li><a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}</a></li>
         {{ question.pub_date }}<br>
-        {{ question.question_subject }}
+        {{ question.question_subject }}<br>
+        浏览量：{{ question.page_views }}
         <p></p>
     {% endfor %}
     </ul>
@@ -25,4 +26,4 @@
 {% else %}
     <p>您还没有回答过</p>
 {% endif %}
-<a href="/qas_system/", target="_self">返回主页</a>
+<a href="/qas_system/userpage/", target="_self">返回个人主页</a>

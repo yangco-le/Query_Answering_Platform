@@ -46,7 +46,8 @@ li {line-height:22px; border: solid 2px #999999; background-color:#F0FFF0; margi
                 {% for question in all_question_list %}
                     <li> <div class="p1"> <a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}<br></a> </div>
                  <div class="p2">{{ question.pub_date }}<br></div>
-                 <div class="p3">{{ question.question_subject }} </div> </li>
+                 <div class="p3">{{ question.question_subject }} <br></div>
+                 <div class="p4">浏览量：{{ question.page_views }} </div> </li>
                <p></p>
                 {% endfor %}
                 <div class="button"> <a href="/qas_system/", target="_self">返回主页</a> </div>

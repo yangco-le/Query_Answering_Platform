@@ -46,7 +46,7 @@ class Question(models.Model):
     question_text = RichTextField(verbose_name='具体描述')
     question_subject = models.ForeignKey('Subject', verbose_name='科目', on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now=True, verbose_name='提问日期')
-    page_views = models.IntegerField(default=0, verbose_name='浏览量')
+    page_views = models.PositiveIntegerField(default=0, verbose_name='浏览量')
     questioner = models.ForeignKey('User', verbose_name='提问者', on_delete=models.CASCADE)
     good_num = models.IntegerField(default=0, verbose_name='点赞量')
 
