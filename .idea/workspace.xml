@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="优化了新用户注册界面 尹俊同">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/query_answering_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/query_answering_system.iml" afterDir="false" />
@@ -21,6 +22,15 @@
 =======
     <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="Merge branch 'master' of https://github.com/yangco-le/query_answering_system&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;QAS/QAS/__pycache__/__init__.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/settings.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/urls.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/wsgi.cpython-38.pyc&#10;#&#9;QAS/db.sqlite3&#10;#&#9;QAS/qas_system/__pycache__/__init__.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/admin.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/forms.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/models.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/urls.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/views.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0001_initial.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0002_auto_20200425_0913.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0003_auto_20200502_1148.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0004_tipoff.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0005_auto_20200504_1645.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0006_auto_20200504_1705.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0007_auto_20200504_1821.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0008_comment_comment_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0009_auto_20200505_1908.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0010_auto_20200506_1459.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0011_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0012_auto_20200506_2249.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0013_auto_20200506_2251.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0014_auto_20200506_2252.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0015_remove_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0016_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/__init__.cpython-38.pyc" />
 >>>>>>> d35b1392943c37b4f0685a8556a3216d747cf73d
+=======
+    <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="Merge branch 'master' of https://github.com/yangco-le/query_answering_system&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;QAS/QAS/__pycache__/__init__.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/settings.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/urls.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/wsgi.cpython-38.pyc&#10;#&#9;QAS/db.sqlite3&#10;#&#9;QAS/qas_system/__pycache__/__init__.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/admin.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/forms.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/models.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/urls.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/views.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0001_initial.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0002_auto_20200425_0913.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0003_auto_20200502_1148.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0004_tipoff.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0005_auto_20200504_1645.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0006_auto_20200504_1705.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0007_auto_20200504_1821.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0008_comment_comment_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0009_auto_20200505_1908.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0010_auto_20200506_1459.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0011_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0012_auto_20200506_2249.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0013_auto_20200506_2251.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0014_auto_20200506_2252.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0015_remove_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0016_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/__init__.cpython-38.pyc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/qas_system/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/templates/question_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/question_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pushlog.md" beforeDir="false" afterPath="$PROJECT_DIR$/pushlog.md" afterDir="false" />
+    </list>
+>>>>>>> 3c593844f8f10f6c9282cb46cb81a35ac4e2c5ee
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -186,6 +196,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
