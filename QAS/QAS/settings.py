@@ -133,7 +133,7 @@ CKEDITOR_CONFIGS = {
     'default': {
         # 编辑器宽度自适应
         'width': '123.6%',
-        'height': '235px',
+        'height': '210px',
         # tab键转换空格数
         'tabSpaces': 4,
         # 工具栏风格

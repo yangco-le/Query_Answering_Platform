@@ -8,7 +8,7 @@ author：郦洋
 
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}问题详情页{% endblock %}
+{% block title %}新问题{% endblock %}
 {% block link_before %}
     <link href="{% static 'bootstrap-combined.min.css' %}" rel="stylesheet">
 {% endblock %}
@@ -62,8 +62,10 @@ author：郦洋
                       </select>
                   </div>
 
+                  <div>&nbsp;</div>
+
                   <div>
-                    <button type="submit" class="btn btn-primary float-left">发布问题</button>
+                    <button type="submit" class="btn btn-primary float-right">发布问题</button>
                   </div>
 
               </form>

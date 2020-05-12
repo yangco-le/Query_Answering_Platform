@@ -43,15 +43,16 @@ author： 汤峻侬
                                         <!-- 问题的标题和内容 -->
 										<h2><a href="#">{{ question.question_title }}</a></h2>
                                         <p>{{ question.question_text | safe }}</p>
-                                        <div class="row justify-content-end ">
-                                            <div class="col-4"></div>
-                                            {% if user == question.questioner %}
-                                                <div class="col-2" onclick="confirm_update()"><button type="button" class="btn btn-outline-secondary">更新问题</button></div>
-                                                <div class="col-2"><button type="button" onclick="confirm_delete()" class="btn btn-outline-secondary">删除问题</button></div>
-                                            {% endif %}
-                                        </div>
                                     </div>
-
+                                    <div align="left">
+                                        <button style="height: 33px" class="btn btn-outline-info my-2 my-sm-2" type="submit" onclick="javascrtpt:window.location.href='#' ">收藏</button>
+                                        <a>&nbsp;</a>
+                                        {% if user == question.questioner %}
+                                            <button style="height: 33px" class="btn btn-outline-info my-sm-2" type="submit" onclick="confirm_update()">修改问题</button>
+                                            <a>&nbsp;</a>
+                                            <button style="height: 33px" class="btn btn-outline-info my-sm-2" type="submit" onclick="confirm_delete()">删除问题</button>
+                                        {% endif %}
+                                    </div>
 								</div>
 							</div>
 						</div>
