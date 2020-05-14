@@ -32,4 +32,5 @@ urlpatterns = [
     path('userpage/edit/', views.userpage_edit, name='user_edit'),  # 个人信息编辑
     path('userpage/related_discuss/', views.userpage_related_discuss),  # 查看参与的讨论
     path('userpage/collect_question/', views.userpage_collect_question),  # 查看收藏的问题
+    path('question_fav/<int:question_id>/', views.question_fav, name='question_fav'),  # 收藏问题
 ]

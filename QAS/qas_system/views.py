@@ -448,3 +448,34 @@ def userpage_collect_question(request):
     u = User.objects.get(id=request.session['user_id'])
     my_collect = u.collect_question.all()
     return render(request, 'personal_collect_question.html', {'my_collect': my_collect})
+
+def question_fav(request, question_id):
+    '''
+    收藏问题
+    尹俊同
+    '''
+    # 根据 id 获取需要收藏的文章
+    question = get_object_or_404(Question, id=question_id)
+
+    if request.method == 'GET':
+
+        # 检查是否处于登陆状态
+        if not request.session.get('is_login', None):
+            return redirect('/qas_system/login/')
+
+        u = User.objects.get(id=request.session['user_id'])
+        cq = u.collect_question.all()
+        lis = [i.id for i in cq]
+
+        if question_id in lis:
+            #  如果记录已经存在，那么表示用户取消收藏
+            q = Question.objects.get(id=question_id)
+            u.collect_question.remove(q)
+
+        else:
+            q = Question.objects.get(id=question_id)
+            u.collect_question.add(q)
+
+        return redirect(question)
+    else:
+        return HttpResponse("收藏仅接受GET请求。")
