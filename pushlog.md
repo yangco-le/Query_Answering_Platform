@@ -84,3 +84,8 @@
 ### 1 登陆页面重写，新建login_new.html 和 mycss/login.css  但是原有的login.html和login.css 还未删除；
 ### 2 添加了对登陆时的信息校验错误时的弹出框效果；
 ### 3 添加了modal 弹出框的相关文件modal_out.css和modal_out.js ; 
+
+# 2020年5月14日 尹俊同
+### 1 修改question_detail.html，收藏按钮指向后端
+### 2 在views.py中新增收藏问题功能collect_question()，将问题收藏到个人主页中查看
+### 3 添加取消收藏
