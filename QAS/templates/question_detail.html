@@ -61,6 +61,11 @@ author： 汤峻侬
 							<div class="col-md-12">
 								<h2 class="comment-heading">Comments</h2>
 
+                             {% if not comments %}
+                             <div style="text-align: center" class="text-black-50">
+                                 暂无评论</div>
+                            {% else %}
+
                                 {% for commenti in comments %}
                                     <div class="review">
                                     {% if commenti.comment_person.avatar %}
@@ -95,6 +100,7 @@ author： 汤峻侬
                                     </div>
 
                                 {% endfor %}
+                            {% endif %}
                             </div>
 
 

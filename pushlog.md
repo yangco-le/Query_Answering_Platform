@@ -80,4 +80,7 @@
 ### 3 完成个人页面编辑前端修改
 ### 4 编辑header.css添加类.head使导航栏固定于屏幕顶端且图层优先级最高，设置不透明度为90%
 
-
+# 2020年5月14日 汤峻侬
+### 1 登陆页面重写，新建login_new.html 和 mycss/login.css  但是原有的login.html和login.css 还未删除；
+### 2 添加了对登陆时的信息校验错误时的弹出框效果；
+### 3 添加了modal 弹出框的相关文件modal_out.css和modal_out.js ; 

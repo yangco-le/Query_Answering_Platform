@@ -370,7 +370,7 @@ def user_login(request):
                 user = models.User.objects.get(user_name=username)
             except:
                 message = '用户不存在！'
-                return render(request, 'login.html', locals())
+                return render(request, 'login_new.html', locals())
             if user.password == password:
                 request.session['is_login'] = True
                 request.session['user_id'] = user.id
@@ -378,11 +378,11 @@ def user_login(request):
                 return redirect('/qas_system/userpage/')
             else:
                 message = '密码不正确！'
-                return render(request, 'login.html', locals())
+                return render(request, 'login_new.html', locals())
         else:
-            return render(request, 'login.html', locals())
+            return render(request, 'login_new.html', locals())
     login_form = forms.UserLoginForm()
-    return render(request, 'login.html', locals())
+    return render(request, 'login_new.html', locals())
 
 
 def user_register(request):
