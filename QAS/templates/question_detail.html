@@ -47,10 +47,12 @@ author： 汤峻侬
                                     <div align="left">
                                         <button style="height: 33px" class="btn btn-outline-info my-2 my-sm-2" type="submit" onclick="javascrtpt:window.location.href='{% url 'qas_system:question_fav' question.id %}' ">收藏</button>
                                         <a>&nbsp;</a>
-                                        {% if user == question.questioner %}
-                                            <button style="height: 33px" class="btn btn-outline-info my-sm-2" type="submit" onclick="confirm_update()">修改问题</button>
-                                            <a>&nbsp;</a>
-                                            <button style="height: 33px" class="btn btn-outline-info my-sm-2" type="submit" onclick="confirm_delete()">删除问题</button>
+                                        {% if user %}
+                                            {% if user == question.questioner %}
+                                                <button style="height: 33px" class="btn btn-outline-info my-sm-2" type="submit" onclick="confirm_update()">修改问题</button>
+                                                <a>&nbsp;</a>
+                                                <button style="height: 33px" class="btn btn-outline-info my-sm-2" type="submit" onclick="confirm_delete()">删除问题</button>
+                                            {% endif %}
                                         {% endif %}
                                     </div>
 								</div>
