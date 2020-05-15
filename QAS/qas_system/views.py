@@ -360,8 +360,9 @@ def userpage_related_discuss(request):
     # 徐哲修改了id的传入方式
     my_ask = Question.objects.filter(questioner_id=request.session['user_id']).order_by('-pub_date')
     my_answer_detail = Comment.objects.filter(comment_person=request.session['user_id']).order_by('-pub_date')
+    user = models.User.objects.get(id=request.session['user_id'])
     return render(request, 'personal_related_discuss.html',
-                  {'my_ask': my_ask, 'my_answer_detail': my_answer_detail})
+                  {'my_ask': my_ask, 'my_answer_detail': my_answer_detail, 'user': user})
 
 
 def user_login(request):
@@ -459,7 +460,8 @@ def userpage_collect_question(request):
     # 黄海石
     u = User.objects.get(id=request.session['user_id'])
     my_collect = u.collect_question.all()
-    return render(request, 'personal_collect_question.html', {'my_collect': my_collect})
+    user = models.User.objects.get(id=request.session['user_id'])
+    return render(request, 'personal_collect_question.html', {'my_collect': my_collect, 'user': user})
 
 def question_fav(request, question_id):
     '''

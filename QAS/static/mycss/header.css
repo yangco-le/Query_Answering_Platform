@@ -13,4 +13,11 @@
     opacity: 90%;
 }
 
+.pl{
+        width: 500px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;/*加宽度width属来兼容部分浏览*/
+    }
+
 

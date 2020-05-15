@@ -1,16 +1,91 @@
-<!--用户收藏的问题页面 黄海石-->
-<h4>您收藏的问题</h4>
+<!--
+用户参与的讨论页面 尹俊同
+重写：郦洋
+-->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}个人主页{% endblock %}
+{% block link_before %}
+    <link href="{% static 'bootstrap-combined.min.css' %}" rel="stylesheet">
+{% endblock %}
+    <!--内含多种功能的css-->
+{% block link_after %}
+    <link href="{% static 'layoutit.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span3">
+		</div>
+		<div class="span6">
+			<div class="hero-unit">
+				<h1>
+					<strong>你好, {{ user.user_name }}!</strong>
+				</h1>
+                <div>&nbsp;</div>
+				<p>
+					这是您的个人主页, 您可以在此编辑您的个人信息, 也可以在此查看您所参与的问题讨论。点击编辑以编辑您的个人信息。
+				</p>
+			</div>
+			<ul class="nav nav-tabs">
+				<li>
+					<a href="/qas_system/userpage/">个人信息</a>
+				</li>
+				<li>
+					<a href="/qas_system/userpage/related_discuss/">参与的讨论</a>
+				</li>
+                <li class="active">
+					<a>收藏的问题</a>
+				</li>
+				<li class="dropdown" >
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">编辑</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/qas_system/userpage/edit/">编辑个人信息</a>
+					</ul>
+				</li>
+			</ul>
+            <div>&nbsp;</div>
+
+<div class="page-header" contenteditable="true"><h4><strong>您的收藏 &nbsp;<small>YOUR QUESTIONS</small></strong></h4></div>
 {% if my_collect %}
     <ul>
     {% for question in my_collect %}
-        <li><a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}</a></li>
-        {{ question.pub_date }}<br>
-        {{ question.question_subject }}<br>
-        浏览量：{{ question.page_views }}
-        <p></p>
+        <div class="desc">
+
+            <div class="container-fluid">
+                 <div class="span1">
+                     {% if question.questioner.avatar %}
+                         <img style="width: 50px" src="{{ user.avatar.url }}" class="card-img"/>
+                     {% else %}
+                         <img style="width: 50px" src="/media/avatar/default0.jpg" class="card-img"/>
+                     {% endif %}
+                 </div>
+				 <div class="span10">
+                     <a href="#" style="color: #0e0e0e"><strong>{{ question.questioner }}</strong></a>
+                     <p style="color: #0e0e0e" class="pl">{{ question.questioner.bio }}&nbsp;</p>
+                 </div>
+			</div>
+            <h4><a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}</a></h4>
+			<p class="meta">
+				 <span class="sub"><a href="#" style="color: #0e0e0e"><strong>{{ question.question_subject }}&nbsp;&nbsp;</strong></a></span>
+				 <span class="date">{{ question.pub_date }}</span>
+                 <span><a href="#" style="color: #0e0e0e">&nbsp;&nbsp;<strong>浏览量：{{ question.page_views }}</strong></a></span>
+			</p>
+        </div>
+        <div class="page-header" contenteditable="true"></div>
     {% endfor %}
     </ul>
 {% else %}
-    <p>您还没有收藏过问题</p>
+    <p>您还没有收藏过</p>
 {% endif %}
-<a href="/qas_system/userpage/", target="_self">返回个人主页</a>
+
+        <a href="/qas_system/userpage/", target="_self">返回个人主页</a>
+
+		</div>
+		<div class="span3">
+		</div>
+</div>
+</div>
+{% endblock %}
