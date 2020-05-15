@@ -9,7 +9,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.test_homepage_ly),
+    path('1', views.test_homepage_ly), # 原始test页面
+    path('', views.mainpage),
     path('createq/', views.create_question),  # 跳转创建问题页面
     path('updateq/<int:id>', views.update_question), # 问题修改页面
     path('question/<int:id>/', views.test_questionpage_ly, name='question_detail'),

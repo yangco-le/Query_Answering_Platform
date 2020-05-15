@@ -17,6 +17,14 @@ def test_homepage_ly(request):
     return render(request, 'test_ly.html')
 
 
+def mainpage(request):
+    '''
+    测试主页
+    author:郦洋
+    '''
+    return render(request, 'mainpage.html')
+
+
 def test_questionpage_ly(request, id):
     '''
     测试问题页
@@ -25,17 +33,18 @@ def test_questionpage_ly(request, id):
     # 2020年5月11日 黄海石有改动
 
     question = models.Question.objects.get(id=id)
+
     # 每浏览一次 浏览量加一
     question.page_views += 1
     question.save(update_fields=['page_views'])
+
     comments = Comment.objects.filter(question=id)
     tipoffs = Tipoff.objects.filter(question=id)
+
     # 在html文件中实现：如果浏览的不是提问者，则不显示“删除问题”“修改问题”链接
-    try:
-        user = models.User.objects.get(id=request.session['user_id'])
-    except KeyError:
-        user = None
+    user = models.User.objects.get(id=request.session['user_id'])
     context = {'question': question, 'comments': comments, 'tipoffs': tipoffs, 'user': user}
+
     return render(request, 'question_detail.html', context)
 
 
@@ -89,7 +98,8 @@ def create_question(request):
             subjects = models.Subject.objects.all()
             question_post_form = QuestionPostForm()
             message = "表单内容有误，请重新填写。"
-            context = {'question_post_form': question_post_form, 'subjects': subjects, 'message': message}
+            user = models.User.objects.get(id=request.session['user_id'])
+            context = {'question_post_form': question_post_form, 'subjects': subjects, 'message': message, 'user': user}
             return render(request, 'create_question.html', context)
         # 如果用户请求获取数据
     else:
@@ -97,7 +107,8 @@ def create_question(request):
         # 创建表单类实例
         question_post_form = QuestionPostForm()
         # 赋值上下文
-        context = {'question_post_form': question_post_form, 'subjects': subjects}
+        user = models.User.objects.get(id=request.session['user_id'])
+        context = {'question_post_form': question_post_form, 'subjects': subjects, 'user': user}
         # 返回模板
         return render(request, 'create_question.html', context)
 
@@ -133,7 +144,8 @@ def update_question(request, id):
             subjects = models.Subject.objects.all()
             question_post_form = QuestionPostForm()
             message = "表单内容有误，请重新填写。"
-            context = {'question_post_form': question_post_form, 'subjects': subjects, 'message': message, 'question':question}
+            user = models.User.objects.get(id=request.session['user_id'])
+            context = {'question_post_form': question_post_form, 'subjects': subjects, 'message': message, 'question':question, 'user': user}
             return render(request, 'update_question.html', context)
         # 如果用户请求获取数据
     else:
@@ -141,7 +153,8 @@ def update_question(request, id):
         # 创建表单类实例
         question_post_form = QuestionPostForm()
         # 赋值上下文
-        context = {'question_post_form': question_post_form, 'subjects': subjects, 'question':question}
+        user = models.User.objects.get(id=request.session['user_id'])
+        context = {'question_post_form': question_post_form, 'subjects': subjects, 'question':question, 'user': user}
         # 返回模板
         return render(request, 'update_question.html', context)
 
@@ -303,10 +316,7 @@ def userpage(request):
     郦洋
     '''
     # 徐哲修改了id的传入方式
-    try:
-        user = models.User.objects.get(id=request.session['user_id'])
-    except KeyError:
-        return render(request, 'login_new.html')
+    user = models.User.objects.get(id=request.session['user_id'])
     if request.method == "GET":
         return render(request, 'personal_homepage.html', {'user': user})
 
