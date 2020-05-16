@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import QuestionPostForm, CommentForm, TipOffForm, UserPageForm, UserLoginForm
 from . import models, forms
-from .models import Question, Subject, Comment, Tipoff, User, Good
+from .models import Question, Subject, Comment, Tipoff, User, Good, Cgood
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from django.urls import reverse
@@ -275,6 +275,31 @@ def question_good(request, question_id):
         question.save()
         good = Good(good_question=question, good_by=(User(id=request.session['user_id'])))
         good.save()
+        return redirect(question)
+    else:
+        return HttpResponse("点赞仅接受GET请求。")
+
+
+def comment_good(request, question_id, comment_id):
+    '''
+    给评论点赞
+    author: 徐哲
+    '''
+    question = Question.objects.filter(id=question_id).first()
+    comment = Comment.objects.filter(id=comment_id).first()
+    like_query = Cgood.objects.filter(good_comment_id=comment_id, good_by_id=request.session['user_id']).first()
+    if not request.session.get('is_login', None):
+        # 检查是否处于登陆状态
+        return redirect('/qas_system/login/')
+    if like_query is not None:
+        # 检查是否点过赞
+        return redirect(question)
+    # 处理 GET 请求
+    if request.method == 'GET':
+        comment.good_num += 1
+        comment.save()
+        cgood = Cgood(good_comment=comment, good_by=(User(id=request.session['user_id'])))
+        cgood.save()
         return redirect(question)
     else:
         return HttpResponse("点赞仅接受GET请求。")

@@ -100,7 +100,17 @@ class Good(models.Model):
     '''
     问题点赞类
     外键：问题、用户
-    用途：限制一个用户只能点赞一次
+    用途：限制一个用户对某一问题只能点赞一次
     '''
     good_by = models.ForeignKey('User', verbose_name='点赞者', on_delete=models.CASCADE, related_name='goods')
     good_question = models.ForeignKey('Question', verbose_name='问题', on_delete=models.CASCADE, related_name='goods')
+
+
+class Cgood(models.Model):
+    '''
+    评论点赞类
+    外键：评论、用户
+    用途：限制一个用户只能对某一评论点赞一次
+    '''
+    good_by = models.ForeignKey('User', verbose_name='点赞者', on_delete=models.CASCADE, related_name='cgoods')
+    good_comment = models.ForeignKey('Comment', verbose_name='评论', on_delete=models.CASCADE, related_name='cgoods')

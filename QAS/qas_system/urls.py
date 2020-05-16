@@ -23,6 +23,7 @@ urlpatterns = [
     path('question-comment/<int:question_id>/', views.question_comment, name='question_comment'),  # 问题评论
     path('question-tipoff/<int:question_id>/', views.question_tipoff, name='question_tipoff'),  # 举报问题
     path('question-good/<int:question_id>/', views.question_good, name='question_good'),  # 点赞问题
+    path('comment-good/<int:question_id>/<int:comment_id>/', views.comment_good, name='comment_good'),  # 点赞评论
     path('search/', views.search),  # 问题搜索单选框
     path('search_subject/', views.search_subject),  # 按科目搜索问题
     path('search_keyword/', views.search_keyword, name='search_keyword'),  # 按关键字搜索问题
