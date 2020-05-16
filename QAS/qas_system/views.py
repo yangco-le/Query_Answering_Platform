@@ -265,13 +265,13 @@ def question_good(request, question_id):
     if not request.session.get('is_login', None):
         # 检查是否处于登陆状态
         return redirect('/qas_system/login/')
-    # 处理 POST 请求
-    if request.method == 'POST':
+    # 处理 GET 请求
+    if request.method == 'GET':
         question.good_num += 1
         question.save()
         return redirect(question)
     else:
-        return HttpResponse("点赞仅接受POST请求。")
+        return HttpResponse("点赞仅接受GET请求。")
 
 
 def search(request):
@@ -462,6 +462,7 @@ def userpage_collect_question(request):
     my_collect = u.collect_question.all()
     user = models.User.objects.get(id=request.session['user_id'])
     return render(request, 'personal_collect_question.html', {'my_collect': my_collect, 'user': user})
+
 
 def question_fav(request, question_id):
     '''

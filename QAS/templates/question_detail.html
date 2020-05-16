@@ -39,6 +39,7 @@ author： 汤峻侬
 											<span class="date">{{ question.pub_date }}</span>
 											<span class="questioner">By <a href="#">{{ question.questioner }}</a></span>
                                             <span class="questioner"><a href="#">浏览量：{{ question.page_views }}</a></span>
+                                            <span class="question"><a href="#">点赞量：{{ question.good_num }}</a></span>
 										</p>
                                         <!-- 问题的标题和内容 -->
 										<h2><a href="#">{{ question.question_title }}</a></h2>
@@ -46,6 +47,8 @@ author： 汤峻侬
                                     </div>
                                     <div align="left">
                                         <button style="height: 33px" class="btn btn-outline-info my-2 my-sm-2" type="submit" onclick="javascrtpt:window.location.href='{% url 'qas_system:question_fav' question.id %}' ">收藏</button>
+                                        <a> </a>
+                                        <button style="height: 33px" class="btn btn-outline-info my-2 my-sm-2" type="submit" onclick="javascrtpt:window.location.href='{% url 'qas_system:question_good' question.id %}' ">点赞</button>
                                         <a>&nbsp;</a>
                                         {% if user %}
                                             {% if user == question.questioner %}
