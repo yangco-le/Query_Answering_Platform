@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import QuestionPostForm, CommentForm, TipOffForm, UserPageForm, UserLoginForm
 from . import models, forms
-from .models import Question, Subject, Comment, Tipoff, User
+from .models import Question, Subject, Comment, Tipoff, User, Good
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from django.urls import reverse
@@ -261,14 +261,20 @@ def question_good(request, question_id):
     给问题点赞
     author: 徐哲
     '''
-    question = get_object_or_404(Question, id=question_id)
+    question = Question.objects.filter(id=question_id).first()
+    like_query = Good.objects.filter(good_question_id=question_id, good_by_id=request.session['user_id']).first()
     if not request.session.get('is_login', None):
         # 检查是否处于登陆状态
         return redirect('/qas_system/login/')
+    if like_query is not None:
+        # 检查是否点过赞
+        return redirect(question)
     # 处理 GET 请求
     if request.method == 'GET':
         question.good_num += 1
         question.save()
+        good = Good(good_question=question, good_by=(User(id=request.session['user_id'])))
+        good.save()
         return redirect(question)
     else:
         return HttpResponse("点赞仅接受GET请求。")

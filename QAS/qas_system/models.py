@@ -94,3 +94,13 @@ class Tipoff(models.Model):
 
     def __str__(self):
         return self.reason
+
+
+class Good(models.Model):
+    '''
+    问题点赞类
+    外键：问题、用户
+    用途：限制一个用户只能点赞一次
+    '''
+    good_by = models.ForeignKey('User', verbose_name='点赞者', on_delete=models.CASCADE, related_name='goods')
+    good_question = models.ForeignKey('Question', verbose_name='问题', on_delete=models.CASCADE, related_name='goods')
