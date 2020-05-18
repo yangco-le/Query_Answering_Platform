@@ -545,11 +545,14 @@ def question_fav(request, question_id):
             #  如果记录已经存在，那么表示用户取消收藏
             q = Question.objects.get(id=question_id)
             u.collect_question.remove(q)
+            return render(request, 'question_detail_re.html', {'question': question})
 
         else:
             q = Question.objects.get(id=question_id)
             u.collect_question.add(q)
+            return render(request, 'question_detail.html', {'question': question})
 
-        return redirect(question)
+        '''return redirect(question)'''
+
     else:
         return HttpResponse("收藏仅接受GET请求。")
