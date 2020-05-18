@@ -57,28 +57,24 @@ a:link{text-decoration:none; color: #CC0000;}
 		<span class="sr-only">切换下拉菜单</span>
 	</button>
 	<ul class="dropdown-menu" role="menu">
-		<li><a href="#">功能</a></li>
-		<li><a href="#">另一个功能</a></li>
-		<li><a href="#">其他</a></li>
-		<li class="divider"></li>
-		<li><a href="#">分离的链接</a></li>
+        {% for s in all_subject %}
+            <li><a href="/qas_system/select/2/{{ s.id }}/">{{ s.name }}</a></li>
+        {% endfor %}
 	</ul>
 </div>
             </th>
 			<th>
                 <div class="btn-group">
-	<button type="button" class="btn btn-default">创建时间</button>
+	<button type="button" class="btn btn-default">排序方式</button>
 	<button type="button" class="btn btn-default dropdown-toggle"
 			data-toggle="dropdown">
 		<span class="caret"></span>
 		<span class="sr-only">切换下拉菜单</span>
 	</button>
 	<ul class="dropdown-menu" role="menu">
-		<li><a href="#">功能</a></li>
-		<li><a href="#">另一个功能</a></li>
-		<li><a href="#">其他</a></li>
-		<li class="divider"></li>
-		<li><a href="#">分离的链接</a></li>
+		<li><a href="/qas_system/all_question/0/">最多浏览</a></li>
+        <li><a href="/qas_system/all_question/1/">最多点赞</a></li>
+        <li><a href="/qas_system/all_question/2/">最新发布</a></li>
 	</ul>
 </div>
             </th>
@@ -93,16 +89,11 @@ a:link{text-decoration:none; color: #CC0000;}
 
      <tr>
          <th>{{ question.question_subject }} <br> </th>
-         <th>{{ question.pub_date }}<br> </th>
+         <th>{{ question.pub_date }} 浏览量：{{ question.page_views }} 点赞量：{{ question.good_num }}<br> </th>
      <th> <a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}<br></a> </th>
-
-
      </tr>
-
                 {% endfor %}
-
                 {% else %}
-
       {% endif %}
 	</tbody>
 
@@ -112,44 +103,10 @@ a:link{text-decoration:none; color: #CC0000;}
 
 </p>
 
-
 </div>
 </body>
 
 {% endblock %}
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

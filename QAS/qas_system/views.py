@@ -30,19 +30,18 @@ def test_questionpage_ly(request, id):
     测试问题页
     author:liyang
     '''
-    # 2020年5月11日 黄海石有改动
-
     question = models.Question.objects.get(id=id)
-
     # 每浏览一次 浏览量加一
     question.page_views += 1
     question.save(update_fields=['page_views'])
-
     comments = Comment.objects.filter(question=id)
     tipoffs = Tipoff.objects.filter(question=id)
 
     # 在html文件中实现：如果浏览的不是提问者，则不显示“删除问题”“修改问题”链接
-    user = models.User.objects.get(id=request.session['user_id'])
+    try:
+        user = models.User.objects.get(id=request.session['user_id'])
+    except KeyError:
+        user = None
     context = {'question': question, 'comments': comments, 'tipoffs': tipoffs, 'user': user}
 
     return render(request, 'question_detail.html', context)
@@ -188,11 +187,14 @@ def select_result(request, sequencing, question_subject):
     elif sequencing == 2:
         select_result_list = Question.objects.filter(question_subject_id=question_subject).order_by('-pub_date')
     else:
-        # 如果sequencing为0,1,2以外的值，则返回问题筛选结果页面
-        all_subject = Subject.objects.all()
-        return render(request, 'select.html', {'all_subject': all_subject})
+        # 如果sequencing为0,1,2以外的值，则返回主页
+        return render(request, 'mainpage.html')
+    all_subject = Subject.objects.all()
     context = {
         'select_result_list': select_result_list,
+        'sequencing': sequencing,
+        'all_subject': all_subject,
+        'this_subject': question_subject,
     }
     return render(request, 'select_result.html', context)
 
@@ -201,7 +203,25 @@ def all_question(request):
     # 浏览所有问题页面 按照时间顺序
     # 黄海石
     all_question_list = Question.objects.all().order_by('-pub_date')
-    return render(request, 'all_question.html', {'all_question_list': all_question_list})
+    all_subject = Subject.objects.all()
+    return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject})
+
+
+def all_question2(request, sequencing):
+    # 浏览所有问题页面 3种排列顺序
+    # 黄海石
+
+    if sequencing == 0:
+        all_question_list = Question.objects.all().order_by('-page_views')
+    elif sequencing == 1:
+        all_question_list = Question.objects.all().order_by('-good_num')
+    elif sequencing == 2:
+        all_question_list = Question.objects.all().order_by('-pub_date')
+    else:
+        # 如果sequencing为0,1,2以外的值，则返回主页
+        return render(request, 'mainpage.html')
+    all_subject = Subject.objects.all()
+    return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject})
 
 
 def question_comment(request, question_id):
@@ -347,7 +367,10 @@ def userpage(request):
     郦洋
     '''
     # 徐哲修改了id的传入方式
-    user = models.User.objects.get(id=request.session['user_id'])
+    try:
+        user = models.User.objects.get(id=request.session['user_id'])
+    except KeyError:
+        return HttpResponse("请先登录！")
     if request.method == "GET":
         return render(request, 'personal_homepage.html', {'user': user})
 
@@ -389,9 +412,12 @@ def userpage_related_discuss(request):
     # 查看参与的讨论，分为提问和回答
     # 黄海石
     # 徐哲修改了id的传入方式
+    try:
+        user = User.objects.get(id=request.session['user_id'])
+    except KeyError:
+        return HttpResponse("请先登录！")
     my_ask = Question.objects.filter(questioner_id=request.session['user_id']).order_by('-pub_date')
     my_answer_detail = Comment.objects.filter(comment_person=request.session['user_id']).order_by('-pub_date')
-    user = models.User.objects.get(id=request.session['user_id'])
     return render(request, 'personal_related_discuss.html',
                   {'my_ask': my_ask, 'my_answer_detail': my_answer_detail, 'user': user})
 
@@ -489,9 +515,11 @@ def user_logout(request):
 def userpage_collect_question(request):
     # 查看收藏的问题
     # 黄海石
-    u = User.objects.get(id=request.session['user_id'])
-    my_collect = u.collect_question.all()
-    user = models.User.objects.get(id=request.session['user_id'])
+    try:
+        user = User.objects.get(id=request.session['user_id'])
+    except KeyError:
+        return HttpResponse("请先登录！")
+    my_collect = user.collect_question.all()
     return render(request, 'personal_collect_question.html', {'my_collect': my_collect, 'user': user})
 
 

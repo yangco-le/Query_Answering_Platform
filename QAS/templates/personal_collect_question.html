@@ -1,5 +1,5 @@
 <!--
-用户参与的讨论页面 尹俊同
+用户收藏的问题 黄海石
 重写：郦洋
 -->
 {% extends 'base.html' %}
@@ -57,7 +57,7 @@
             <div class="container-fluid">
                  <div class="span1">
                      {% if question.questioner.avatar %}
-                         <img style="width: 50px" src="{{ user.avatar.url }}" class="card-img"/>
+                         <img style="width: 50px" src="{{ question.questioner.avatar.url }}" class="card-img"/>
                      {% else %}
                          <img style="width: 50px" src="/media/avatar/default0.jpg" class="card-img"/>
                      {% endif %}

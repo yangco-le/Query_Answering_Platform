@@ -1,20 +1,113 @@
 <!--问题筛选结果页面 黄海石-->
+<!DOCTYP html >
+
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="utf-8">
+	<title>问题筛选页面</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 
 
-{% if select_result_list %}
-    <ul>
-    {% for question in select_result_list %}
-        <li><a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}</a></li>
-        {{ question.pub_date }}<br>
-        {{ question.question_subject }}<br>
-        浏览量：{{ question.page_views }}
-        <p></p>
-    {% endfor %}
-    <a href="/qas_system/select/", target="_self">返回筛选页面</a>
-    <a href="/qas_system/", target="_self">返回主页</a>
-    </ul>
-{% else %}
-    <p>根据您的筛选条件未找到筛选结果，点击下面的链接返回。</p>
-    <a href="/qas_system/select/", target="_self">返回筛选页面</a>
-    <a href="/qas_system/", target="_self">返回主页</a>
-{% endif %}
+    <style type="text/css">
+ body {background-size: 80%; }
+
+.all{ max-width: 1500px; margin: 0 auto; }
+.tt{padding:10px;  background-color: #ccffcc;  vertical-align: middle; }
+
+a:link{text-decoration:none; color: #CC0000;}
+
+
+</style>
+</head>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}个人主页{% endblock %}
+{% block link_before %}
+    <link href="{% static 'bootstrap-combined.min.css' %}" rel="stylesheet">
+{% endblock %}
+    <!--内含多种功能的css-->
+{% block link_after %}
+    <link href="{% static 'layoutit.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<body>
+<div class="all">
+<div class="tt">
+    <h1>问题筛选页面</h1>
+</div>
+
+<table class="table table-bordered">
+	<caption>ALL QUESTIONS</caption>
+	<thead>
+		<tr>
+			<th>
+             <div class="btn-group">
+	<button type="button" class="btn btn-default">所属科目</button>
+	<button type="button" class="btn btn-default dropdown-toggle"
+			data-toggle="dropdown">
+		<span class="caret"></span>
+		<span class="sr-only">切换下拉菜单</span>
+	</button>
+	<ul class="dropdown-menu" role="menu">
+        {% for s in all_subject %}
+            <li><a href="/qas_system/select/{{ sequencing }}/{{ s.id }}/">{{ s.name }}</a></li>
+        {% endfor %}
+	</ul>
+</div>
+            </th>
+			<th>
+                <div class="btn-group">
+	<button type="button" class="btn btn-default">排序方式</button>
+	<button type="button" class="btn btn-default dropdown-toggle"
+			data-toggle="dropdown">
+		<span class="caret"></span>
+		<span class="sr-only">切换下拉菜单</span>
+	</button>
+	<ul class="dropdown-menu" role="menu">
+		<li><a href="/qas_system/select/0/{{ this_subject }}/">最多浏览</a></li>
+        <li><a href="/qas_system/select/1/{{ this_subject }}/">最多点赞</a></li>
+        <li><a href="/qas_system/select/2/{{ this_subject }}/">最新发布</a></li>
+	</ul>
+</div>
+            </th>
+			<th>内容</th>
+		</tr>
+	</thead>
+
+	<br>
+     {% if select_result_list %}
+         {% for question in select_result_list %}
+     <tr>
+         <th>{{ question.question_subject }} <br> </th>
+         <th>{{ question.pub_date }} 浏览量：{{ question.page_views }} 点赞量：{{ question.good_num }}<br> </th>
+     <th> <a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}<br></a> </th>
+     </tr>
+         {% endfor %}
+     {% else %}
+         <p>根据您的筛选条件未找到筛选结果，点击下面的链接返回。</p>
+         <a href="/qas_system/select/", target="_self">返回筛选页面</a></br>
+         <a href="/qas_system/", target="_self">返回主页</a>
+     {% endif %}
+	</tbody>
+
+</table>
+<p>
+    <button type="button" class="btn btn-default btn-lg "><a href="/qas_system/" , target="_self">返回主页</a></button>
+
+</p>
+
+</div>
+</body>
+
+{% endblock %}
+
+</html>
+
