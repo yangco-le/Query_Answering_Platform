@@ -53,7 +53,7 @@ author： 汤峻侬
                                             {% endfor %}
                                             {% endif %}
                                         <a> </a>
-                                        <button style="height: 33px" class="btn btn-outline-info my-2 my-sm-2" type="submit" onclick="javascrtpt:window.location.href='{% url 'qas_system:question_good' question.id %}' ">点赞</button>
+                                        <button id="like" style="height: 33px" class="btn btn-outline-info my-2 my-sm-2" type="submit" onclick="javascrtpt:window.location.href='{% url 'qas_system:question_good' question.id %}' ">点赞</button>
                                         <a>&nbsp;</a>
                                         {% if user %}
                                             {% if user == question.questioner %}
@@ -198,4 +198,12 @@ author： 汤峻侬
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'></script>
     <script src="{% static 'myjs/button.js' %}"></script>
+
+    <script>
+        var created = '{{ good_created|safe }}';
+        if (created != 'None'){
+            $('#like').css('background','gray')
+        }
+    </script>
+
 {% endblock %}

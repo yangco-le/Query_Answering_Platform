@@ -44,7 +44,11 @@ def test_questionpage_ly(request, id):
         user = models.User.objects.get(id=request.session['user_id'])
     except KeyError:
         user = None
-    context = {'question': question, 'comments': comments, 'tipoffs': tipoffs, 'user': user, 'form': form}
+
+    # 检查用户是否对问题点过赞，决定点赞按钮的底色
+    good_created = Good.objects.filter(good_question_id=id, good_by_id=request.session['user_id']).first()
+
+    context = {'question': question, 'comments': comments, 'tipoffs': tipoffs, 'user': user, 'form': form, 'good_created': good_created}
 
     return render(request, 'question_detail.html', context)
 
