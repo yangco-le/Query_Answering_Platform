@@ -37,13 +37,14 @@ def test_questionpage_ly(request, id):
     question.save(update_fields=['page_views'])
     comments = Comment.objects.filter(question=id)
     tipoffs = Tipoff.objects.filter(question=id)
+    form = CommentForm()
 
     # 在html文件中实现：如果浏览的不是提问者，则不显示“删除问题”“修改问题”链接
     try:
         user = models.User.objects.get(id=request.session['user_id'])
     except KeyError:
         user = None
-    context = {'question': question, 'comments': comments, 'tipoffs': tipoffs, 'user': user}
+    context = {'question': question, 'comments': comments, 'tipoffs': tipoffs, 'user': user, 'form': form}
 
     return render(request, 'question_detail.html', context)
 
