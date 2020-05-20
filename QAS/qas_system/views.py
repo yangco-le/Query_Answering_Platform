@@ -191,11 +191,16 @@ def select_result(request, sequencing, question_subject):
         # 如果sequencing为0,1,2以外的值，则返回主页
         return render(request, 'mainpage.html')
     all_subject = Subject.objects.all()
+    try:
+        user = models.User.objects.get(id=request.session['user_id'])
+    except KeyError:
+        user = None
     context = {
         'select_result_list': select_result_list,
         'sequencing': sequencing,
         'all_subject': all_subject,
         'this_subject': question_subject,
+        'user': user
     }
     return render(request, 'select_result.html', context)
 
@@ -205,7 +210,11 @@ def all_question(request):
     # 黄海石
     all_question_list = Question.objects.all().order_by('-pub_date')
     all_subject = Subject.objects.all()
-    return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject})
+    try:
+        user = models.User.objects.get(id=request.session['user_id'])
+    except KeyError:
+        user = None
+    return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject, 'user':user})
 
 
 def all_question2(request, sequencing):
@@ -222,7 +231,11 @@ def all_question2(request, sequencing):
         # 如果sequencing为0,1,2以外的值，则返回主页
         return render(request, 'mainpage.html')
     all_subject = Subject.objects.all()
-    return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject})
+    try:
+        user = models.User.objects.get(id=request.session['user_id'])
+    except KeyError:
+        user = None
+    return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject, 'user': user})
 
 
 def question_comment(request, question_id):

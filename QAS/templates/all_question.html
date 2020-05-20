@@ -1,26 +1,7 @@
 <!--所有问题浏览页面 黄海石，邵宇-->
-<!DOCTYP html >
-
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>所有问题页面</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 
 
-    <style type="text/css">
- body {background-size: 80%; }
 
-.all{ max-width: 1500px; margin: 0 auto; }
-.tt{padding:10px;  background-color: #ccffcc;  vertical-align: middle; }
-
-a:link{text-decoration:none; color: #CC0000;}
-
-
-</style>
-</head>
 
 {% extends 'base.html' %}
 {% load static %}
@@ -33,29 +14,33 @@ a:link{text-decoration:none; color: #CC0000;}
     <link href="{% static 'layoutit.css'%}" rel="stylesheet">
 {% endblock %}
 
+
+
 {% block content %}
 
+<style type="text/css">
+    body {background-size: 80%; }
+    .all{ max-width: 1500px; margin: 0 auto; }
+    .tt{padding:10px;  background-color: #ccffcc;  vertical-align: middle; }
+    a:link{text-decoration:none; color: #CC0000;}
+</style>
 
 
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span2"></div>
 
-<body>
-<div class="all">
-<div class="tt">
-    <h1> 所有问题页面</h1>
-</div>
-
+<div class="span8">
 <table class="table table-bordered">
 	<caption>ALL QUESTIONS</caption>
 	<thead>
 		<tr>
 			<th>
              <div class="btn-group">
-	<button type="button" class="btn btn-default">所属科目</button>
-	<button type="button" class="btn btn-default dropdown-toggle"
-			data-toggle="dropdown">
-		<span class="caret"></span>
-		<span class="sr-only">切换下拉菜单</span>
-	</button>
+	            <button type="button" class="btn btn-default">所属科目</button>
+	            <button type="button" class="btn btn-default dropdown-toggle"
+			        data-toggle="dropdown">
+	            </button>
 	<ul class="dropdown-menu" role="menu">
         {% for s in all_subject %}
             <li><a href="/qas_system/select/2/{{ s.id }}/">{{ s.name }}</a></li>
@@ -68,8 +53,6 @@ a:link{text-decoration:none; color: #CC0000;}
 	<button type="button" class="btn btn-default">排序方式</button>
 	<button type="button" class="btn btn-default dropdown-toggle"
 			data-toggle="dropdown">
-		<span class="caret"></span>
-		<span class="sr-only">切换下拉菜单</span>
 	</button>
 	<ul class="dropdown-menu" role="menu">
 		<li><a href="/qas_system/all_question/0/">最多浏览</a></li>
@@ -102,11 +85,15 @@ a:link{text-decoration:none; color: #CC0000;}
     <button type="button" class="btn btn-default btn-lg "><a href="/qas_system/" , target="_self">返回主页</a></button>
 
 </p>
-
 </div>
-</body>
+
+<div class="span2"></div>
+</div>
+</div>
+
+
 
 {% endblock %}
 
-</html>
+
 

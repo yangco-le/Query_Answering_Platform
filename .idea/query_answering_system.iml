@@ -22,7 +22,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/QAS/QAS" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (QAS)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Google App Engine SDK" level="project" />
   </component>
