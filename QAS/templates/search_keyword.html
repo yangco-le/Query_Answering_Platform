@@ -7,14 +7,6 @@
    <title>question</title>
 </head>
 <body>
-   <form action="/qas_system/search_keyword/" >
-       <input type="text"
-                   name="search"
-                   placeholder="搜索问题..."
-                   required
-               >
-       <input type="submit" value="提交">
-   </form>
    {% if question_list %}
    {% for question in question_list %}
        <li><a href="/qas_system/question/{{ question.id }}/">{{ question.question_title }}</a></li>
