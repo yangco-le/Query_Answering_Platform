@@ -2,7 +2,10 @@
 author: 汤峻侬
 
 5.12修改 郦洋
+
+5.16 修改搜索框 汤峻侬
 -->
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light header">
   <a class="navbar-brand" >
       <img src="http://vi.sjtu.edu.cn/uploads/files/caf2f5045c47308250fab3812dfe2003-6896b91594f238b24e67696224948251.png" alt="sjtu">
@@ -42,10 +45,24 @@ author: 汤峻侬
       </li>
 
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="/qas_system/search_keyword/" >
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="javascrtpt:window.location.href='/qas_system/search_both' ">搜索</button>
-    </form>
+     <form autocomplete="off" id="search_form" action="{% url 'qas_system:search_keyword' %}">
+
+    <div class="finder">
+      <div class="finder__outer">
+        <div class="finder__inner">
+          <div class="finder__icon" ref="icon" onclick="javascript:document.getElementById('search_form').submit();"></div>
+          <input class="finder__input" type="text" name="q" />
+            <div>
+                <select name="subject" id="" class="custom-select" style="height: 32px; width:min-content; margin-left: 2px">
+                    <option value="">选择科目</option>
+                    <option value="">大学化学</option>
+                    <option value="">软件工程</option>
+                </select>
+            </div>
+        </div>
+      </div>
+    </div>
+     </form>
 
     <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         {% csrf_token %}

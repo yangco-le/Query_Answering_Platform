@@ -26,7 +26,7 @@ urlpatterns = [
     path('question-good/<int:question_id>/', views.question_good, name='question_good'),  # 点赞问题
     path('comment-good/<int:question_id>/<int:comment_id>/', views.comment_good, name='comment_good'),  # 点赞评论
     path('search/', views.search),  # 问题搜索单选框
-    path('search_subject/', views.search_subject),  # 按科目搜索问题
+    path('search_subject/', views.search_subject, name="search_subject"),  # 按科目搜索问题
     path('search_keyword/', views.search_keyword, name='search_keyword'),  # 按关键字搜索问题
     path('login/', views.user_login, name='login'),  # 登陆
     path('register/', views.user_register, name='register'),  # 注册
