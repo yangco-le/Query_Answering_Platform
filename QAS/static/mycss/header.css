@@ -19,5 +19,8 @@
         text-overflow:ellipsis;
         white-space: nowrap;/*加宽度width属来兼容部分浏览*/
     }
-
+.dropdown-menu.pull-right {
+	right: 0;
+	left: auto;
+}
 

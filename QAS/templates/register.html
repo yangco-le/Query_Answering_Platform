@@ -1,69 +1,101 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{% static 'login/css/register.css' %}" rel="stylesheet"/>
-    <title>注册</title>
-  </head>
-  <body>
-    <div class="container">
-            <div class="col">
-                <form class="form-register" action="{% url 'qas_system:register' %}" method="post">
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+    {% load static %}
+  <title>注册</title>
+  <link rel="stylesheet" href="{% static 'mycss/modal_out.css' %}">
+  <link rel="stylesheet" href="{% static 'mycss/login.css' %}">
 
-                    {% if register_form.captcha.errors %}
-                        <div class="alert alert-warning">{{ register_form.captcha.errors }}</div>
-                    {% elif message %}
-                        <div class="alert alert-warning">{{ message }}</div>
-                    {% endif %}
 
-                  {% csrf_token %}
-                  <h3 class="text-center">欢迎注册</h3>
 
-                  <div class="form-group">
-                      {{ register_form.username.label_tag }}
-                      {{ register_form.username}}
-                  </div>
-                  <div class="form-group">
-                      {{ register_form.password1.label_tag }}
-                      {{ register_form.password1 }}
-                  </div>
-                  <div class="form-group">
-                      {{ register_form.password2.label_tag }}
-                      {{ register_form.password2 }}
-                  </div>
-                  <div class="form-group">
-                      {{ register_form.email.label_tag }}
-                      {{ register_form.email }}
-                  </div>
-                  <div class="form-group">
-                      {{ register_form.sex.label_tag }}
-                      {{ register_form.sex }}
-                  </div>
-                  <div class="form-group">
-                      {{ register_form.captcha.label_tag }}
-                      {{ register_form.captcha }}
-                  </div>
 
-                  <div>
-                      <a href="/qas_system/login/"  ><ins>直接登录</ins></a>
-                      <button type="submit" class="btn btn-primary float-right">注册</button>
-                  </div>
-                </form>
-            </div>
-    </div> <!-- /container -->
+</head>
+<body style="font-weight: 500; ">
+<!-- partial:index.partial.html -->
+{% if register_form.captcha.errors %}
+<div id="modal-container">
+  <div class="modal-background">
+    <div class="modal">
+      <h2>验证码错误</h2>
+      <p>请重新填写信息</p>
+      <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
+								<rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
+							</svg>
+    </div>
+  </div>
+</div>
+{% elif message %}
+<div id="modal-container">
+  <div class="modal-background">
+    <div class="modal">
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    {#    以下三者的引用顺序是固定的#}
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
-    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <p>{{ message }}</p>
+      <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
+								<rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
+							</svg>
+    </div>
+  </div>
+</div>
+{% endif %}
 
-  </body>
+<div class="login-box">
+  <h2>注册</h2>
+  <form id="submit_form" action="{% url 'qas_system:register' %}" method="post">
+      {% csrf_token %}
+    <div class="user-box">
+        <input type="text" required="required" name="username"  autofocus="autofocus" maxlength="128" autocomplete="off">
+      <label>用户名</label>
+    </div>
+    <div class="user-box">
+        <input type="password" name="password1" required="required" maxlength="" autocomplete="off">
+      <label>密码</label>
+    </div>
+
+    <div class="user-box">
+        <input type="password" name="password2" required="required" maxlength="" autocomplete="off">
+      <label>确认密码</label>
+   </div>
+   <div class="user-box">
+        <input type="email" name="email" required="required" maxlength="" autocomplete="off">
+      <label>邮箱地址</label>
+    </div>
+    <div style="color: ghostwhite;  ">
+        <p style="display: inline-block">性别：</p>
+        <label for="male">男</label>
+        <input type="radio" name="sex" value="男" id="male">
+        <label for="female">女</label>
+        <input type="radio" name="sex" value="女" id="female">
+    </div>
+    <div class="user-box">
+        {{ register_form.captcha.label_tag }}
+        {{ register_form.captcha }}
+    </div>
+
+    <a class="submit_button modal_out" id="two" href="#" onclick="document.getElementById('submit_form').submit();">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      注册
+    </a>
+      <a href="/qas_system/login/" class="register_button" ><ins>返回登陆</ins></a>
+  </form>
+</div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script type="text/javascript">
+    (function(){
+  var buttonId = $('.modal_out').attr('id');
+  $('#modal-container').removeAttr('class').addClass(buttonId);
+  $('body').addClass('modal-active');
+})();
+
+$('#modal-container').click(function(){
+  $(this).addClass('out');
+  $('body').removeClass('modal-active');
+});
+</script>
+
+</body>
 </html>
