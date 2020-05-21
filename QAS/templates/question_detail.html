@@ -46,12 +46,13 @@ author： 汤峻侬
                                         <p>{{ question.question_text | safe }}</p>
                                     </div>
                                     <div align="left">
-                                        <button style="height: 33px" class="btn btn-outline-info my-2 my-sm-2" type="submit" onclick="javascrtpt:window.location.href='{% url 'qas_system:question_fav' question.id %}' ">收藏</button>
+                                        <button style="height: 33px" class="btn btn-outline-info my-2 my-sm-2" type="submit" onclick="javascrtpt:window.location.href='{% url 'qas_system:question_fav' question.id %}' " value="收藏">
                                             {% if messages %}
                                             {% for message in messages %}
                                             {{ message }}
                                             {% endfor %}
                                             {% endif %}
+                                        </button>
                                         <a> </a>
                                         <button id="like" style="height: 33px" class="btn btn-outline-info my-2 my-sm-2" type="submit" onclick="javascrtpt:window.location.href='{% url 'qas_system:question_good' question.id %}' ">点赞</button>
                                         <a>&nbsp;</a>

@@ -380,6 +380,29 @@ def search_keyword(request):
     return render(request, 'search_keyword.html', context)
 
 
+def search_both(request, method):
+    if method == 0:
+        sc = request.GET.get('search', None)
+        context = None
+        if sc:
+            print(sc)
+            question_list = Question.objects.filter(question_subject__name=sc)
+            context = {'question_list': question_list}
+        return render(request, 'search_subject.html', context)
+    elif method == 1:
+        sc = request.GET.get('search', None)
+        context = None
+        if sc:
+            print(sc)
+            question_list = Question.objects.filter(question_title__icontains=sc)
+            context = {'question_list': question_list}
+        return render(request, 'search_keyword.html', context)
+    else:
+        # 如果method为0,1以外的值，则返回主页
+        return render(request, 'mainpage.html')
+
+
+
 def userpage(request):
     '''
     显示用户主页
@@ -564,7 +587,7 @@ def question_fav(request, question_id):
             #  如果记录已经存在，那么表示用户取消收藏
             q = Question.objects.get(id=question_id)
             u.collect_question.remove(q)
-            messages.error(request, '已取消收藏')
+            messages.error(request, '收藏')
 
         else:
             q = Question.objects.get(id=question_id)
@@ -575,3 +598,22 @@ def question_fav(request, question_id):
 
     else:
         return HttpResponse("收藏仅接受GET请求。")
+'''
+question = Question.objects.filter(id=question_id).first()
+like_query = Good.objects.filter(good_question_id=question_id, good_by_id=request.session['user_id']).first()
+if not request.session.get('is_login', None):
+    # 检查是否处于登陆状态
+    return redirect('/qas_system/login/')
+if like_query is not None:
+    # 检查是否点过赞
+    return redirect(question)
+# 处理 GET 请求
+if request.method == 'GET':
+    question.good_num += 1
+    question.save()
+    good = Good(good_question=question, good_by=(User(id=request.session['user_id'])))
+    good.save()
+    return redirect(question)
+else:
+    return HttpResponse("点赞仅接受GET请求。")
+'''
