@@ -2,7 +2,7 @@
 
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}个人主页{% endblock %}
+{% block title %}科目筛选{% endblock %}
 {% block link_before %}
     <link href="{% static 'bootstrap-combined.min.css' %}" rel="stylesheet">
 {% endblock %}
@@ -74,8 +74,7 @@ a:link{text-decoration:none; color: #CC0000;}
          {% endfor %}
      {% else %}
          <p>根据您的筛选条件未找到筛选结果，点击下面的链接返回。</p>
-         <a href="/qas_system/select/", target="_self">返回筛选页面</a></br>
-         <a href="/qas_system/", target="_self">返回主页</a>
+         <a href="/qas_system/all_question/", target="_self">返回主页</a>
      {% endif %}
 	</tbody>
 

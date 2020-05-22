@@ -402,7 +402,6 @@ def search_both(request, method):
         return render(request, 'mainpage.html')
 
 
-
 def userpage(request):
     '''
     显示用户主页
