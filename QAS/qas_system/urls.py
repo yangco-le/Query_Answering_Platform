@@ -1,22 +1,14 @@
-'''
-转接urls
-author:liyang
-'''
-
-
 from django.urls import path
-
 from . import views
 
 urlpatterns = [
-    path('1', views.test_homepage_ly), # 原始test页面
-    path('', views.mainpage),
+    path('', views.mainpage),  # 首页
     path('createq/', views.create_question),  # 跳转创建问题页面
     path('updateq/<int:id>', views.update_question), # 问题修改页面
-    path('question/<int:id>/', views.test_questionpage_ly, name='question_detail'),
-    path('question-delete/<int:id>/', views.question_delete),
+    path('question/<int:id>/', views.question_detail, name='question_detail'),  # 问题详情界面
+    path('question-delete/<int:id>/', views.question_delete),  # 删除问题
     path('select/', views.select, name='select'),  # 问题筛选页面
-    path('selecting/', views.selecting, name='selecting'),
+    path('selecting/', views.selecting, name='selecting'),  # 筛选问题
     path('select/<int:sequencing>/<int:question_subject>/', views.select_result,  # 问题筛选结果页面 sequencing为0,1,2
          name='select_result'),  # 分别代表按浏览量降序、点赞量降序、发布时间降序排列
     path('all_question/', views.all_question),  # 浏览所有问题 按照时间顺序排列

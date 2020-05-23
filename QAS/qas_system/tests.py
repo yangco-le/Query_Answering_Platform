@@ -1,4 +1,3 @@
-# 黄海石
 from django.test import TestCase, Client
 from django.urls import resolve, reverse
 from .views import *

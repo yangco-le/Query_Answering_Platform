@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('qas_system/', include(('qas_system.urls', 'qas_system'), namespace='qas_system')),
+    path('admin/', admin.site.urls),  # 管理界面入口
+    path('qas_system/', include(('qas_system.urls', 'qas_system'), namespace='qas_system')),  # 转接url到qas_system app
     path('captcha/', include('captcha.urls')),  # 提供登陆验证码的库
 ]
 

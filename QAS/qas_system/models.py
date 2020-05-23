@@ -1,7 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.urls import reverse
-# Create your models here.
 
 
 class User(models.Model):
@@ -29,6 +28,7 @@ class User(models.Model):
 class Subject(models.Model):
     '''
     科目
+    属性：科目名
     '''
     name = models.CharField(max_length=30, unique=True, verbose_name='科目名称')
 
