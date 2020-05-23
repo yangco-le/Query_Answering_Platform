@@ -1,3 +1,4 @@
+//汤峻侬 搜索功能修改
 const input = document.querySelector(".finder__input");
 const finder = document.querySelector(".finder");
 const form = document.querySelector("#search_form");
@@ -13,11 +14,10 @@ input.addEventListener("blur", () => {
   }
 });
 
-form.addEventListener("submit", (ev) => {
-  ev.preventDefault();
+function search(){
   finder.classList.add("processing");
   finder.classList.remove("active");
-  input.disabled = true;
+
   setTimeout(() => {
     finder.classList.remove("processing");
     input.disabled = false;
@@ -25,4 +25,25 @@ form.addEventListener("submit", (ev) => {
       finder.classList.add("active");
     }
   }, 1000);
+  window.setTimeout('form.submit();', 1000);
+}
+
+form.addEventListener("submit", (ev) => {
+
+  ev.preventDefault();
+
+  finder.classList.add("processing");
+  finder.classList.remove("active");
+
+  setTimeout(() => {
+    finder.classList.remove("processing");
+    input.disabled = false;
+    if (input.value.length > 0) {
+      finder.classList.add("active");
+    }
+
+  }, 1000);
+
+  window.setTimeout('form.submit();', 1000);
+
 });

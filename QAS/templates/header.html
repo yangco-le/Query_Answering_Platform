@@ -45,19 +45,18 @@ author: 汤峻侬
       </li>
 
     </ul>
-     <form autocomplete="off" id="search_form" action="{% url 'qas_system:search_keyword' %}">
-
+     <form autocomplete="off" id="search_form" action="{% url 'qas_system:search_both' %}" method="get">
+     {% csrf_token %}
     <div class="finder">
       <div class="finder__outer">
         <div class="finder__inner">
-          <div class="finder__icon" ref="icon" onclick="javascript:document.getElementById('search_form').submit();"></div>
-          <input class="finder__input" type="text" name="q" />
+          <div class="finder__icon" ref="icon" onclick="javascript:search();"></div>
+          <input class="finder__input" type="text" name="search" >
             <div>
-                <select name="subject" id="" class="custom-select" style="height: 32px; width:min-content; margin-left: 2px">
-                    <option value="">选择科目</option>
-                    <option value="">大学化学</option>
-                    <option value="">软件工程</option>
-                </select>
+                <select name="type"  class="custom-select" style="height: 32px; width:min-content; margin-left: 2px">
+                    <option value="1">按关键词</option>
+                    <option value="0">按科目</option>
+                  </select>
             </div>
         </div>
       </div>
@@ -66,8 +65,12 @@ author: 汤峻侬
 
     <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
         {% csrf_token %}
-	    {% if user.avatar %}
-            <img src="{{ user.avatar.url }}" class="card-img" style="width: 43px; height: 43px"/>
+	    {% if user %}
+            {% if user.avatar %}
+            <img src="{{ user.avatar.url }}" class="card-img" style="width: 43px; height: 43px" alt="暂无头像"/>
+                {% else %}
+                <img src="/QAS/media/avatar/default0.jpg" class="card-img" style="width: 43px; height: 43px" alt="暂无头像">
+                {% endif %}
             <a>&nbsp;</a>
             <div class="dropdown" >
             <a class="dropdown-toggle" href="#" id="Dropdown2"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
@@ -76,6 +79,7 @@ author: 汤峻侬
                 <a class="dropdown-item" href="/qas_system/logout">登出</a>
             </div>
             </div>
+
         {% else %}
             <a href="/qas_system/login/">登录</a>
         {% endif %}

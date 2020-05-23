@@ -380,8 +380,9 @@ def search_keyword(request):
     return render(request, 'search_keyword.html', context)
 
 
-def search_both(request, method):
-    if method == 0:
+def search_both(request):
+    method = request.GET.get('type', None)
+    if method == '0':
         sc = request.GET.get('search', None)
         context = None
         if sc:
@@ -389,7 +390,7 @@ def search_both(request, method):
             question_list = Question.objects.filter(question_subject__name=sc)
             context = {'question_list': question_list}
         return render(request, 'search_subject.html', context)
-    elif method == 1:
+    elif method == '1':
         sc = request.GET.get('search', None)
         context = None
         if sc:
@@ -481,7 +482,7 @@ def user_login(request):
                 user = models.User.objects.get(user_name=username)
             except:
                 message = '用户不存在！'
-                return render(request, 'login_new.html', locals())
+                return render(request, 'login.html', locals())
             if user.password == password:
                 request.session['is_login'] = True
                 request.session['user_id'] = user.id
@@ -489,11 +490,11 @@ def user_login(request):
                 return redirect('/qas_system/userpage/')
             else:
                 message = '密码不正确！'
-                return render(request, 'login_new.html', locals())
+                return render(request, 'login.html', locals())
         else:
-            return render(request, 'login_new.html', locals())
+            return render(request, 'login.html', locals())
     login_form = forms.UserLoginForm()
-    return render(request, 'login_new.html', locals())
+    return render(request, 'login.html', locals())
 
 
 def user_register(request):
