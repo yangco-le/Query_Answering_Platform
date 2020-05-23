@@ -7,29 +7,21 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from django.urls import reverse
 from django.contrib import messages
-# Create your views here.
-
-
-def test_homepage_ly(request):
-    '''
-    测试主页
-    author:liyang
-    '''
-    return render(request, 'test_ly.html')
 
 
 def mainpage(request):
     '''
-    测试主页
-    author:郦洋
+    首页
+    :param request: 请求
     '''
     return render(request, 'mainpage.html')
 
 
-def test_questionpage_ly(request, id):
+def question_detail(request, id):
     '''
-    测试问题页
-    author:liyang
+    问题详情页
+    :param request: 请求
+    :param id: 问题主键值
     '''
     question = models.Question.objects.get(id=id)
     # 每浏览一次 浏览量加一
@@ -38,26 +30,24 @@ def test_questionpage_ly(request, id):
     comments = Comment.objects.filter(question=id)
     tipoffs = Tipoff.objects.filter(question=id)
     form = CommentForm()
-
     # 在html文件中实现：如果浏览的不是提问者，则不显示“删除问题”“修改问题”链接
     try:
         user = models.User.objects.get(id=request.session['user_id'])
     except KeyError:
         user = None
-
     # 检查用户是否对问题点过赞，决定点赞按钮的底色
     good_created = Good.objects.filter(good_question_id=id, good_by_id=request.session['user_id']).first()
-
-    context = {'question': question, 'comments': comments, 'tipoffs': tipoffs, 'user': user, 'form': form, 'good_created': good_created}
-
+    context = {'question': question, 'comments': comments, 'tipoffs': tipoffs, 'user': user, 'form': form,
+               'good_created': good_created}
     return render(request, 'question_detail.html', context)
 
 
 def question_delete(request, id):
     '''
     删除问题后端
-    author:liyang
-    # 徐哲修改：与用户关联，用户只能删除自己创建的问题
+    与用户关联，用户只能删除自己创建的问题
+    :param request: 请求
+    :param id: 问题主键值
     '''
     # 根据 id 获取需要删除的文章
     question = models.Question.objects.get(id=id)
@@ -74,8 +64,8 @@ def question_delete(request, id):
 def create_question(request):
     '''
     创建问题网页后端
-    author：liyang
-    # 徐哲修改：与用户关联，登陆的用户才能创建问题
+    与用户关联，登陆的用户才能创建问题
+    :param request: 请求
     '''
     if not request.session.get('is_login', None):
         # 检查是否处于登陆状态
@@ -121,8 +111,9 @@ def create_question(request):
 def update_question(request, id):
     '''
     修改问题网页后端
-    author：liyang
-    # 徐哲修改：与用户关联，用户只能修改自己创建的问题
+    与用户关联，用户只能修改自己创建的问题
+    :param request: 请求
+    :param id: 问题主键值
     '''
     question = models.Question.objects.get(id=id)
     if not request.session.get('is_login', None):
@@ -150,7 +141,8 @@ def update_question(request, id):
             question_post_form = QuestionPostForm()
             message = "表单内容有误，请重新填写。"
             user = models.User.objects.get(id=request.session['user_id'])
-            context = {'question_post_form': question_post_form, 'subjects': subjects, 'message': message, 'question':question, 'user': user}
+            context = {'question_post_form': question_post_form, 'subjects': subjects, 'message': message,
+                       'question':question, 'user': user}
             return render(request, 'update_question.html', context)
         # 如果用户请求获取数据
     else:
@@ -165,14 +157,19 @@ def update_question(request, id):
 
 
 def select(request):
-    # 问题筛选页面
-    # 黄海石
+    '''
+    问题筛选
+    :param request: 请求
+    '''
     all_subject = Subject.objects.all()
     return render(request, 'select.html', {'all_subject': all_subject})
 
 
 def selecting(request):
-    # 黄海石
+    '''
+    问题筛选
+    :param request: 请求
+    '''
     try:
         a = request.POST['subject']
         b = request.POST['sequencing']
@@ -184,8 +181,12 @@ def selecting(request):
 
 
 def select_result(request, sequencing, question_subject):
-    # 问题筛选结果页面
-    # 黄海石
+    '''
+    问题筛选结果页面
+    :param request: 请求
+    :param sequencing:
+    :param question_subject:
+    '''
     if sequencing == 0:
         select_result_list = Question.objects.filter(question_subject_id=question_subject).order_by('-page_views')
     elif sequencing == 1:
@@ -211,21 +212,26 @@ def select_result(request, sequencing, question_subject):
 
 
 def all_question(request):
-    # 浏览所有问题页面 按照时间顺序
-    # 黄海石
+    '''
+    浏览所有问题页面 按照时间顺序
+    :param request: 请求
+    '''
     all_question_list = Question.objects.all().order_by('-pub_date')
     all_subject = Subject.objects.all()
     try:
         user = models.User.objects.get(id=request.session['user_id'])
     except KeyError:
         user = None
-    return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject, 'user':user})
+    return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject,
+                                                 'user':user})
 
 
 def all_question2(request, sequencing):
-    # 浏览所有问题页面 3种排列顺序
-    # 黄海石
-
+    '''
+    浏览所有问题页面 3种排列顺序
+    :param request: 请求
+    :param sequencing:
+    '''
     if sequencing == 0:
         all_question_list = Question.objects.all().order_by('-page_views')
     elif sequencing == 1:
@@ -240,13 +246,16 @@ def all_question2(request, sequencing):
         user = models.User.objects.get(id=request.session['user_id'])
     except KeyError:
         user = None
-    return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject, 'user': user})
+    return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject,
+                                                 'user': user})
 
 
 def question_comment(request, question_id):
     '''
     评论（问题）
-    author: 徐哲
+    :param request: 请求
+    :param question_id: 问题主键值id
+    :return:
     '''
     question = get_object_or_404(Question, id=question_id)
     if not request.session.get('is_login', None):
@@ -272,7 +281,8 @@ def question_comment(request, question_id):
 def question_tipoff(request, question_id):
     '''
     举报问题
-    author: 徐哲
+    :param request: 请求
+    :param question_id: 问题主键值id
     '''
     question = get_object_or_404(Question, id=question_id)
     if not request.session.get('is_login', None):
@@ -298,7 +308,9 @@ def question_tipoff(request, question_id):
 def question_good(request, question_id):
     '''
     给问题点赞
-    author: 徐哲
+    :param request: 请求
+    :param question_id: 问题主键值id
+    :return:
     '''
     question = Question.objects.filter(id=question_id).first()
     like_query = Good.objects.filter(good_question_id=question_id, good_by_id=request.session['user_id']).first()
@@ -322,7 +334,9 @@ def question_good(request, question_id):
 def comment_good(request, question_id, comment_id):
     '''
     给评论点赞
-    author: 徐哲
+    :param request: 请求
+    :param question_id: 问题主键值id
+    :param comment_id: 评论主键值id
     '''
     question = Question.objects.filter(id=question_id).first()
     comment = Comment.objects.filter(id=comment_id).first()
@@ -346,16 +360,16 @@ def comment_good(request, question_id, comment_id):
 
 def search(request):
     '''
-    # 问题搜索页面
-    # 尹俊同
+    问题搜索页面
+    :param request: 请求
     '''
     return render(request, 'search.html',)
 
 
 def search_subject(request):
     '''
-    # 按科目搜索问题
-    # 尹俊同
+    按科目搜索问题
+    :param request:
     '''
     sc = request.GET.get('search', None)
     context = None
@@ -368,8 +382,8 @@ def search_subject(request):
 
 def search_keyword(request):
     '''
-    # 按关键词搜索问题
-    # 尹俊同
+    按关键词搜索问题
+    :param request: 请求
     '''
     sc = request.GET.get('search', None)
     context = None
@@ -380,9 +394,16 @@ def search_keyword(request):
     return render(request, 'search_keyword.html', context)
 
 
+
 def search_both(request):
+    '''
+
+        :param request:
+        :param method:
+        '''
     method = request.GET.get('type', None)
     if method == '0':
+
         sc = request.GET.get('search', None)
         context = None
         if sc:
@@ -406,7 +427,7 @@ def search_both(request):
 def userpage(request):
     '''
     显示用户主页
-    郦洋
+    :param request: 请求
     '''
     # 徐哲修改了id的传入方式
     try:
@@ -420,9 +441,8 @@ def userpage(request):
 def userpage_edit(request):
     '''
     个人信息编辑
-    郦洋
+    :param request: 请求
     '''
-    # 徐哲修改了id的传入方式
     user = models.User.objects.get(id=request.session['user_id'])
     if request.method == "POST":
         user_form = UserPageForm(request.POST, request.FILES)
@@ -451,9 +471,10 @@ def userpage_edit(request):
 
 
 def userpage_related_discuss(request):
-    # 查看参与的讨论，分为提问和回答
-    # 黄海石
-    # 徐哲修改了id的传入方式
+    '''
+    查看参与的讨论，分为提问和回答
+    :param request: 请求
+    '''
     try:
         user = User.objects.get(id=request.session['user_id'])
     except KeyError:
@@ -467,8 +488,8 @@ def userpage_related_discuss(request):
 def user_login(request):
     '''
     用户登陆
-    徐哲
-    在login.html中添加到新用户注册的路径 尹俊同
+    在login.html中添加到新用户注册的路径
+    :param request: 请求
     '''
     if request.session.get('is_login', None):  # 防止重复登录
         return redirect('/qas_system/')
@@ -500,7 +521,7 @@ def user_login(request):
 def user_register(request):
     '''
     用户注册
-    尹俊同
+    :param request: 请求
     '''
     if request.session.get('is_login', None):
         return redirect('/qas_system/')
@@ -546,7 +567,7 @@ def user_register(request):
 def user_logout(request):
     '''
     用户登出
-    徐哲
+    :param request: 请求
     '''
     if not request.session.get('is_login', None):
         # 检查是否处于登陆状态
@@ -556,8 +577,10 @@ def user_logout(request):
 
 
 def userpage_collect_question(request):
-    # 查看收藏的问题
-    # 黄海石
+    '''
+    查看收藏的问题
+    :param request: 请求
+    '''
     try:
         user = User.objects.get(id=request.session['user_id'])
     except KeyError:
@@ -569,13 +592,12 @@ def userpage_collect_question(request):
 def question_fav(request, question_id):
     '''
     收藏问题
-    尹俊同
+    :param request: 请求
+    :param question_id: 问题主键值id
     '''
     # 根据 id 获取需要收藏的文章
     question = get_object_or_404(Question, id=question_id)
-
     if request.method == 'GET':
-
         # 检查是否处于登陆状态
         if not request.session.get('is_login', None):
             return redirect('/qas_system/login/')
@@ -589,7 +611,6 @@ def question_fav(request, question_id):
             q = Question.objects.get(id=question_id)
             u.collect_question.remove(q)
             messages.error(request, '收藏')
-
         else:
             q = Question.objects.get(id=question_id)
             u.collect_question.add(q)

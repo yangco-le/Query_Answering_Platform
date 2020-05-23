@@ -131,7 +131,7 @@ STATIC_URL = '/static/'
 CKEDITOR_CONFIGS = {
     # django-ckeditor默认使用default配置
     'default': {
-        # 编辑器宽度自适应
+        # 编辑器宽度自适应x`
         'width': '123.6%',
         'height': '210px',
         # tab键转换空格数
