@@ -658,3 +658,5 @@ Main
         main()
 
 所有的顶级代码在模块导入时都会被执行. 要小心不要去调用函数, 创建对象, 或者执行那些不应该在使用pydoc时执行的操作.
+
+Reference：zh-google-styleguide
