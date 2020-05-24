@@ -422,7 +422,7 @@ def search_both(request):
         return render(request, 'search_keyword.html', context)
     else:
         # 如果method为0,1以外的值，则返回主页
-        return render(request, 'mainpage.html')
+        return render(request,  'mainpage.html')
 
 
 def userpage(request):
