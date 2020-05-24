@@ -19,8 +19,17 @@
         text-overflow:ellipsis;
         white-space: nowrap;/*加宽度width属来兼容部分浏览*/
     }
+
 .dropdown-menu.pull-right {
 	right: 0;
 	left: auto;
 }
 
+.finder__input {
+
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 1.5rem;
+  letter-spacing: 0.75px;
+}

@@ -33,10 +33,11 @@ def question_detail(request, id):
     # 在html文件中实现：如果浏览的不是提问者，则不显示“删除问题”“修改问题”链接
     try:
         user = models.User.objects.get(id=request.session['user_id'])
+        good_created = Good.objects.filter(good_question_id=id, good_by_id=request.session['user_id']).first()
     except KeyError:
         user = None
+        good_created = None
     # 检查用户是否对问题点过赞，决定点赞按钮的底色
-    good_created = Good.objects.filter(good_question_id=id, good_by_id=request.session['user_id']).first()
     context = {'question': question, 'comments': comments, 'tipoffs': tipoffs, 'user': user, 'form': form,
                'good_created': good_created}
     return render(request, 'question_detail.html', context)
@@ -247,7 +248,7 @@ def all_question2(request, sequencing):
     except KeyError:
         user = None
     return render(request, 'all_question.html', {'all_question_list': all_question_list, 'all_subject': all_subject,
-                                                 'user': user})
+                                                 'user': user, 'sequencing': sequencing})
 
 
 def question_comment(request, question_id):
@@ -620,22 +621,3 @@ def question_fav(request, question_id):
 
     else:
         return HttpResponse("收藏仅接受GET请求。")
-'''
-question = Question.objects.filter(id=question_id).first()
-like_query = Good.objects.filter(good_question_id=question_id, good_by_id=request.session['user_id']).first()
-if not request.session.get('is_login', None):
-    # 检查是否处于登陆状态
-    return redirect('/qas_system/login/')
-if like_query is not None:
-    # 检查是否点过赞
-    return redirect(question)
-# 处理 GET 请求
-if request.method == 'GET':
-    question.good_num += 1
-    question.save()
-    good = Good(good_question=question, good_by=(User(id=request.session['user_id'])))
-    good.save()
-    return redirect(question)
-else:
-    return HttpResponse("点赞仅接受GET请求。")
-'''
