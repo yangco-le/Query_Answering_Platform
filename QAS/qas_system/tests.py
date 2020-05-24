@@ -96,14 +96,30 @@ class TestModel(TestCase):
         self.assertEqual(q.page_views, 0)
 
     def test_Comment(self):
-        c = Comment(comment_text='abc')
+        # 测试评论的创建
+        c = Comment(question=Question(id=3), comment_text='abc', pub_date='2020-02-02 20:20:20', comment_person=User(id=5))
         self.assertEqual(c.comment_text, 'abc')
+        self.assertEqual(c.pub_date, '2020-02-02 20:20:20')
+        self.assertEqual(c.question.id, 3)
+        self.assertEqual(c.comment_person.id, 5)
+
+    def test_Good(self):
+        # 测试问题赞的创建
+        g = Good(good_by=User(user_name='lex'), good_question=Question(id=2))
+        self.assertEqual(g.good_by.user_name, 'lex')
+        self.assertEqual(g.good_question.id, 2)
+
+    def test_Cgood(self):
+        # 测试评论赞的创建
+        cg = Cgood(good_by=User(user_name='dio'), good_comment=Comment(id=8))
+        self.assertEqual(cg.good_by.user_name, 'dio')
+        self.assertEqual(cg.good_comment.id, 8)
 
     def tearDown(self):
         pass
 
 
-class TestView(TestCase):
+class TestSelect(TestCase):
     def test_select(self):
         c = Client()
         response = c.get(reverse('qas_system:select'))
@@ -122,4 +138,26 @@ class TestView(TestCase):
     def test_selecting(self):
         c = Client()
         response = c.post(reverse('qas_system:selecting'), {'subject': 7, 'sequencing': 2})
+        self.assertEqual(response.status_code, 302)
+
+
+class TestQuestion(TestCase):
+    # 测试问题相关函数
+    def setUp(self):
+        pass
+
+    def test_create_question(self):
+        test_question1 = {'question_title': 'a', 'question_text': 'b', 'question_subject': 'c'}
+        response = self.client.post('/qas_system/createq/', data=test_question1)
+        self.assertEqual(response.status_code, 302)
+
+    def test_update_question(self):
+        Subject.objects.create(name='c')
+        User.objects.create(user_name='dio')
+        Question.objects.create(id=3, question_title='a', question_text='b',
+                                question_subject=Subject.objects.get(name='c'),
+                                questioner=User.objects.get(user_name='dio'))
+        test_question2 = {'question_title': 'd', 'question_text': 'e', 'question_subject': 'f'}
+        q = Question.objects.get(id=3)
+        response = self.client.post('/qas_system/updateq/3', data=test_question2)
         self.assertEqual(response.status_code, 302)
