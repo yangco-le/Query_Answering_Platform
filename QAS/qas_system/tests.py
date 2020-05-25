@@ -23,7 +23,7 @@ class TestUrl(TestCase):
 
     def test_url_question_detail(self):
         view = resolve('/qas_system/question/7/')
-        self.assertEqual(view.func, test_questionpage_ly)
+        self.assertEqual(view.func, question_detail)
 
     #
 
@@ -68,10 +68,6 @@ class TestUrl(TestCase):
     def test_url_register(self):
         view = resolve('/qas_system/register/')
         self.assertEqual(view.func, user_register)
-
-    def test_url_logout(self):
-        view = resolve('/qas_system/logout/')
-        self.assertEqual(view.func, user_logout)
 
     def test_url_logout(self):
         view = resolve('/qas_system/logout/')
@@ -164,58 +160,64 @@ class TestQuestion(TestCase):
         self.assertEqual(response.status_code, 302)
 
 
-'''
 class TestRegisterLogin(TestCase):
     # 测试登录和注册相关
     def setUp(self):
         self.client = Client()
         self.login_url = reverse('qas_system:login')
         self.register_url = reverse('qas_system:register')
-        self.user1 = User.objects.create(user_name='user1', password='user1')
+        self.logout_url = reverse('qas_system:logout')
+
+    def test_register(self):
+        user1 = {'username': 'user1', 'password1': 'user1', 'password2': 'user2',
+                 'email': 'user1@qq.com', 'sex': '男', 'captcha': ''}
+        response = self.client.post(self.register_url, data=user1)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'register.html')
 
     def test_login(self):
-        response = self.client.get(self.login_url)
-
+        user2 = {'user_name': 'user2', 'password': 'user2', 'captcha': ''}
+        response = self.client.post(self.login_url, data=user2)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'xxx.html')
+        self.assertTemplateUsed(response, 'login.html')
 
-        question = Question.objects.create(questioner=self.user1, name='question1')
-        response = self.client.post(self.register_url, {'': '', '': '', '': ''})
+    def test_logout(self):
+        response = self.client.post(self.logout_url)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(self.user1.user_name, 'user1')
-
-        question1 = Question.objects.create(question_title='hahaha', questioner='user1')
-        response = self.client.delete(self.login_url, )
-
-        url = reverse('qas_system:logout')
-        response = self.client.post(url, {'question_title': 'question2', '': ''})
-
-        question2 = Question.objects.get(id=1)
-        self.assertEqual(question2.question_title, 'question2')
-'''
+        return redirect('/qas_system/login/')
 
 
 class TestForms(SimpleTestCase):
+    def test_form_UserRegisterForm_empty(self):
+        form = UserRegisterForm(data={})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(len(form.errors), 6)
 
     def test_form_UserRegisterForm_data_not_full(self):
         form = UserRegisterForm(data={'username': 'user1', 'password1': 'user1', 'password2': 'user1'})
         self.assertFalse(form.is_valid())
 
-    def test_form_UserRegisterForm_no_data(self):
-        form = UserRegisterForm(data={})
+    def test_form_UserLoginForm_empty(self):
+        form = UserLoginForm(data={})
         self.assertFalse(form.is_valid())
-        self.assertEqual(len(form.errors), 6)
+        self.assertEqual(len(form.errors), 3)
 
-    def test_form_UserLoginForm_no_captcha(self):
-        form = UserLoginForm(data={'username': 'user1', 'password': 'user1'})
-        self.assertFalse(form.is_valid())
-
-    def test_form_UserPageForm_not_exist(self):
-        form = UserPageForm(data={'avatar': '桐谷和人', 'bio': '随便添加的用户', 'sex': '男', 'grade': '大二',
-                                  'college': '电子信息与电气工程学院', 'major': '信息安全', 'email': 'None'})
-        self.assertFalse(form.is_valid())
-
-    def test_form_UserPageForm_initial(self):
+    def test_form_UserPageForm_empty(self):
         form = UserPageForm(data={})
         self.assertTrue(form.is_valid())
-        self.assertEqual(len(form.errors), 7)
+        self.assertEqual(len(form.errors), 0)
+
+    def test_form_QuestionPostForm_empty(self):
+        form = QuestionPostForm(data={})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(len(form.errors), 3)
+
+    def test_form_CommentForm(self):
+        form = CommentForm(data={})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(len(form.errors), 1)
+
+    def test_form_TipOffForm(self):
+        form = TipOffForm(data={})
+        self.assertFalse((form.is_valid()))
+        self.assertEqual(len(form.errors), 1)
