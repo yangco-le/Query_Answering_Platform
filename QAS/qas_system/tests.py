@@ -1,7 +1,8 @@
-from django.test import TestCase, Client
+from django.test import TestCase, Client, SimpleTestCase
 from django.urls import resolve, reverse
 from .views import *
 from .models import *
+from .forms import *
 from sqlite3 import IntegrityError as Integrity1Error
 from django.db.utils import IntegrityError as Integrity2Error
 
@@ -161,3 +162,60 @@ class TestQuestion(TestCase):
         q = Question.objects.get(id=3)
         response = self.client.post('/qas_system/updateq/3', data=test_question2)
         self.assertEqual(response.status_code, 302)
+
+
+'''
+class TestRegisterLogin(TestCase):
+    # 测试登录和注册相关
+    def setUp(self):
+        self.client = Client()
+        self.login_url = reverse('qas_system:login')
+        self.register_url = reverse('qas_system:register')
+        self.user1 = User.objects.create(user_name='user1', password='user1')
+
+    def test_login(self):
+        response = self.client.get(self.login_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'xxx.html')
+
+        question = Question.objects.create(questioner=self.user1, name='question1')
+        response = self.client.post(self.register_url, {'': '', '': '', '': ''})
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(self.user1.user_name, 'user1')
+
+        question1 = Question.objects.create(question_title='hahaha', questioner='user1')
+        response = self.client.delete(self.login_url, )
+
+        url = reverse('qas_system:logout')
+        response = self.client.post(url, {'question_title': 'question2', '': ''})
+
+        question2 = Question.objects.get(id=1)
+        self.assertEqual(question2.question_title, 'question2')
+'''
+
+
+class TestForms(SimpleTestCase):
+
+    def test_form_UserRegisterForm_data_not_full(self):
+        form = UserRegisterForm(data={'username': 'user1', 'password1': 'user1', 'password2': 'user1'})
+        self.assertFalse(form.is_valid())
+
+    def test_form_UserRegisterForm_no_data(self):
+        form = UserRegisterForm(data={})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(len(form.errors), 6)
+
+    def test_form_UserLoginForm_no_captcha(self):
+        form = UserLoginForm(data={'username': 'user1', 'password': 'user1'})
+        self.assertFalse(form.is_valid())
+
+    def test_form_UserPageForm_not_exist(self):
+        form = UserPageForm(data={'avatar': '桐谷和人', 'bio': '随便添加的用户', 'sex': '男', 'grade': '大二',
+                                  'college': '电子信息与电气工程学院', 'major': '信息安全', 'email': 'None'})
+        self.assertFalse(form.is_valid())
+
+    def test_form_UserPageForm_initial(self):
+        form = UserPageForm(data={})
+        self.assertTrue(form.is_valid())
+        self.assertEqual(len(form.errors), 7)
