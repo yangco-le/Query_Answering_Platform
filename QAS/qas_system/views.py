@@ -386,22 +386,28 @@ def search_keyword(request):
     按关键词搜索问题
     :param request: 请求
     '''
+    try:
+        user = models.User.objects.get(id=request.session['user_id'])
+    except KeyError:
+        user = None
     sc = request.GET.get('search', None)
     context = None
     if sc:
         print(sc)
         question_list = Question.objects.filter(question_title__icontains=sc)
-        context = {'question_list': question_list}
+        context = {'question_list': question_list, 'user': user}
     return render(request, 'search_keyword.html', context)
-
 
 
 def search_both(request):
     '''
 
-        :param request:
-        :param method:
-        '''
+    :param request:
+    '''
+    try:
+        user = models.User.objects.get(id=request.session['user_id'])
+    except KeyError:
+        user = None
     method = request.GET.get('type', None)
     if method == '0':
 
@@ -410,7 +416,7 @@ def search_both(request):
         if sc:
             print(sc)
             question_list = Question.objects.filter(question_subject__name=sc)
-            context = {'question_list': question_list}
+            context = {'question_list': question_list, 'user': user}
         return render(request, 'search_subject.html', context)
     elif method == '1':
         sc = request.GET.get('search', None)
@@ -418,7 +424,7 @@ def search_both(request):
         if sc:
             print(sc)
             question_list = Question.objects.filter(question_title__icontains=sc)
-            context = {'question_list': question_list}
+            context = {'question_list': question_list, 'user': user}
         return render(request, 'search_keyword.html', context)
     else:
         # 如果method为0,1以外的值，则返回主页
