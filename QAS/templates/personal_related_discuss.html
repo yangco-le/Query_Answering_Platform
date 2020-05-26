@@ -57,9 +57,9 @@
             <div class="container-fluid">
                  <div class="span1">
                      {% if question.questioner.avatar %}
-                         <img style="width: 50px" src="{{ question.questioner.avatar.url }}" class="card-img"/>
+                         <img style="width: 50px; height: 50px" src="{{ question.questioner.avatar.url }}" class="img-circle"/>
                      {% else %}
-                         <img style="width: 50px" src="/media/avatar/default0.jpg" class="card-img"/>
+                         <img style="width: 50px; height: 50px" src="/media/avatar/default0.jpg" class="img-circle"/>
                      {% endif %}
                  </div>
 				 <div class="span10">
@@ -91,9 +91,9 @@
             <div class="container-fluid">
                  <div class="span1">
                      {% if comment.question.questioner.avatar %}
-                         <img style="width: 50px" src="{{ comment.question.questioner.avatar.url }}" class="card-img"/>
+                         <img style="width: 50px; height: 50px" src="{{ comment.question.questioner.avatar.url }}" class="img-circle"/>
                      {% else %}
-                         <img style="width: 50px" src="/media/avatar/default0.jpg" class="card-img"/>
+                         <img style="width: 50px; height:50px" src="/media/avatar/default0.jpg" class="img-circle"/>
                      {% endif %}
                  </div>
 				 <div class="span10">
