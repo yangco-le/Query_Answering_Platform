@@ -160,6 +160,25 @@ class TestQuestion(TestCase):
         self.assertEqual(response.status_code, 302)
 
 
+class TestComment(TestCase):
+    # 测试评论、点赞函数（举报功能结构类似，无需重复测试）
+    def setUp(self):
+        Subject.objects.create(name='c')
+        User.objects.create(user_name='dio')
+        Question.objects.create(id=3, question_title='a', question_text='b',
+                                question_subject=Subject.objects.get(name='c'),
+                                questioner=User.objects.get(user_name='dio'))
+
+    def test_question_comment(self):
+        test_comment = {'comment_text': 'text'}
+        response = self.client.post('/qas_system/question-comment/3', data=test_comment)
+        self.assertEqual(response.status_code, 301)
+
+    def test_question_good(self):
+        response = self.client.get('/qas_system/question-good/3')
+        self.assertEqual(response.status_code, 301)
+
+
 class TestRegisterLogin(TestCase):
     # 测试登录和注册相关
     def setUp(self):
