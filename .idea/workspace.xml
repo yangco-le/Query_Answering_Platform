@@ -1,304 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="优化了新用户注册界面 尹俊同">
+    <list default="true" id="80f665fb-0adc-42c7-858d-e3718988880c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Google_App_Engine_SDK.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/query_answering_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/query_answering_system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QAS/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/qas_system/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/qas_system/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/all_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/all_question.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/personal_collect_question.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/personal_collect_question.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/personal_related_discuss.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/personal_related_discuss.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/search_keyword.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/search_keyword.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/search_subject.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/search_subject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/select_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/select_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/test_ly2.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/test_ly2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pushlog.md" beforeDir="false" afterPath="$PROJECT_DIR$/pushlog.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QAS/qas_system/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/tests.py" afterDir="false" />
     </list>
-=======
-    <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="Merge branch 'master' of https://github.com/yangco-le/query_answering_system&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;QAS/QAS/__pycache__/__init__.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/settings.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/urls.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/wsgi.cpython-38.pyc&#10;#&#9;QAS/db.sqlite3&#10;#&#9;QAS/qas_system/__pycache__/__init__.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/admin.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/forms.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/models.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/urls.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/views.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0001_initial.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0002_auto_20200425_0913.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0003_auto_20200502_1148.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0004_tipoff.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0005_auto_20200504_1645.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0006_auto_20200504_1705.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0007_auto_20200504_1821.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0008_comment_comment_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0009_auto_20200505_1908.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0010_auto_20200506_1459.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0011_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0012_auto_20200506_2249.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0013_auto_20200506_2251.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0014_auto_20200506_2252.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0015_remove_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0016_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/__init__.cpython-38.pyc" />
->>>>>>> d35b1392943c37b4f0685a8556a3216d747cf73d
-=======
-    <list default="true" id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="Merge branch 'master' of https://github.com/yangco-le/query_answering_system&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;QAS/QAS/__pycache__/__init__.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/settings.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/urls.cpython-38.pyc&#10;#&#9;QAS/QAS/__pycache__/wsgi.cpython-38.pyc&#10;#&#9;QAS/db.sqlite3&#10;#&#9;QAS/qas_system/__pycache__/__init__.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/admin.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/forms.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/models.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/urls.cpython-38.pyc&#10;#&#9;QAS/qas_system/__pycache__/views.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0001_initial.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0002_auto_20200425_0913.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0003_auto_20200502_1148.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0004_tipoff.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0005_auto_20200504_1645.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0006_auto_20200504_1705.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0007_auto_20200504_1821.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0008_comment_comment_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0009_auto_20200505_1908.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0010_auto_20200506_1459.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0011_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0012_auto_20200506_2249.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0013_auto_20200506_2251.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0014_auto_20200506_2252.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0015_remove_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/0016_tipoff_tipoff_person.cpython-38.pyc&#10;#&#9;QAS/qas_system/migrations/__pycache__/__init__.cpython-38.pyc">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/qas_system/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/qas_system/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QAS/templates/question_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/QAS/templates/question_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pushlog.md" beforeDir="false" afterPath="$PROJECT_DIR$/pushlog.md" afterDir="false" />
-    </list>
->>>>>>> 3c593844f8f10f6c9282cb46cb81a35ac4e2c5ee
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
-  <component name="ProjectId" id="1b6bs5q1LULL3H2REz9FnnKJax1" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1caTd954Qmqb1BAiakIsKQTyJBJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/QAS/static/login/css" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\大二下\软件工程\大作业\warehouse1\query_answering_system\QAS\static\login\css" />
-      <recent name="D:\大二下\软件工程\大作业\warehouse1\query_answering_system\QAS\templates" />
-      <recent name="D:\code-git\query_answering_system\QAS\static\login\image" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\24339\Desktop\repos\django_qas1\query_answering_system\QAS\static" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="QAS" type="Python.DjangoServer" factoryName="Django server">
-      <module name="query_answering_system" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="QAS.settings" />
-      </envs>
-      <option name="SDK_HOME" value="D:\Python 3.8.2\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="127.0.0.1" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <module name="query_answering_system" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\86152\AppData\Local\Programs\Python\Python37\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="127.0.0.1" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="88d0517e-52d3-4b81-83c5-e8ec9bb4a31c" name="Default Changelist" comment="" />
-      <created>1587955693422</created>
+      <changelist id="80f665fb-0adc-42c7-858d-e3718988880c" name="Default Changelist" comment="" />
+      <created>1590765789326</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1587955693422</updated>
-      <workItem from="1587955696121" duration="3026000" />
-      <workItem from="1588390806557" duration="2322000" />
-      <workItem from="1588405364446" duration="2797000" />
-      <workItem from="1588408796223" duration="1306000" />
-      <workItem from="1588432962736" duration="17000" />
-      <workItem from="1588432994864" duration="324000" />
-      <workItem from="1588485838892" duration="1233000" />
-      <workItem from="1588557781428" duration="29043000" />
-      <workItem from="1588645876799" duration="234000" />
-      <workItem from="1588646130726" duration="10191000" />
-      <workItem from="1588666209251" duration="1526000" />
-      <workItem from="1588667754448" duration="1482000" />
-      <workItem from="1588675552743" duration="13768000" />
-      <workItem from="1588690968338" duration="424000" />
-      <workItem from="1588725580438" duration="12271000" />
-      <workItem from="1588748190825" duration="3706000" />
-      <workItem from="1588772062864" duration="4642000" />
-      <workItem from="1588776956026" duration="1306000" />
-      <workItem from="1588820530800" duration="4007000" />
-      <workItem from="1588827616774" duration="79000" />
-      <workItem from="1588829459538" duration="242000" />
-      <workItem from="1588958223834" duration="406000" />
-      <workItem from="1589007841121" duration="974000" />
-      <workItem from="1589100587854" duration="1713000" />
-      <workItem from="1589165096853" duration="225000" />
-      <workItem from="1589165341111" duration="2414000" />
+      <updated>1590765789326</updated>
+      <workItem from="1590765798011" duration="120000" />
+      <workItem from="1590765940691" duration="79000" />
+      <workItem from="1590766122884" duration="1438000" />
     </task>
-    <task id="LOCAL-00001" summary="Default Changelist">
-      <created>1589101070832</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1589101070832</updated>
-    </task>
-    <task id="LOCAL-00002" summary="优化了新用户注册界面 尹俊同">
-      <created>1589102259119</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1589102259119</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Default Changelist" />
-    <MESSAGE value="优化了新用户注册界面 尹俊同" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化了新用户注册界面 尹俊同" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="96" y="0" width="1089" height="720" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588958282446">
+    <state x="142" y="0" key="SettingsEditor" timestamp="1590765965737">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1588958282446" />
-    <state x="96" y="0" width="1089" height="720" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" timestamp="1588750950315" />
-    <state x="115" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1588433093297" />
-    <state x="474" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588571990528">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="474" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1588571990528" />
-    <state x="223" y="0" key="CommitChangelistDialog2" timestamp="1589102329919">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="223" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1589102329919" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1589100731924">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1589100731924" />
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1589102263159">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1589102263159" />
-    <state width="1237" height="176" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1588829702426" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588607554498" />
-    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1589102263159">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1589102263159" />
-    <state width="1237" height="176" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1588829702426" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588607554498" />
-    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1589102263159">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1589102263159" />
-    <state width="1237" height="176" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1588829702426" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588607554498" />
-    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1589102263159">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1589102263159" />
-    <state width="1237" height="176" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1588829702426" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588607554498" />
-    <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1588647118109">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1588647118108" />
-    <state width="1237" height="204" key="GridCell.Tab.1.center" timestamp="1588647118108">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1588647118108" />
-    <state width="1237" height="204" key="GridCell.Tab.1.left" timestamp="1588647118108">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1588647118108" />
-    <state width="1237" height="204" key="GridCell.Tab.1.right" timestamp="1588647118108">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1588647118108" />
-    <state x="122" y="51" key="MergeDialog" timestamp="1589100646838">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="122" y="51" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1589100646838" />
-    <state x="352" y="56" key="MultipleFileMergeDialog" timestamp="1589100651093">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="352" y="56" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1589100651093" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1589165170786">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1589165170786" />
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1588750247256" />
-    <state x="170" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588578968700" />
-    <state x="325" y="175" key="com.intellij.ide.util.TipDialog" timestamp="1589100587869">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="325" y="175" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1589100587869" />
-    <state x="325" y="185" key="com.intellij.ide.util.TipDialog/0.0.1280.720@0.0.1280.720" timestamp="1588829465630" />
-    <state x="437" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589101236812">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="437" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1589101236812" />
-    <state x="278" y="133" width="917" height="502" key="dock-window-1" timestamp="1588688746785">
-      <screen x="0" y="0" width="1280" height="720" />
-    </state>
-    <state x="278" y="133" width="917" height="502" key="dock-window-1/0.0.1280.720@0.0.1280.720" timestamp="1588688746785" />
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1590765965737" />
   </component>
 </project>

@@ -17,15 +17,9 @@ class TestUrl(TestCase):
         view = resolve('/qas_system/createq/')
         self.assertEqual(view.func, create_question)
 
-    # def test_url_update_question(self):
-    #    view = resolve('/qas_system/updateq/7/')
-    #    self.assertEqual(view.func, update_question)
-
     def test_url_question_detail(self):
         view = resolve('/qas_system/question/7/')
         self.assertEqual(view.func, question_detail)
-
-    #
 
     def test_url_select(self):
         view = resolve('/qas_system/select/')
@@ -46,8 +40,6 @@ class TestUrl(TestCase):
     def test_url_all_question2(self):
         view = resolve('/qas_system/all_question/2/')
         self.assertEqual(view.func, all_question2)
-
-    ####
 
     def test_url_search(self):
         view = resolve('/qas_system/search/')
@@ -72,8 +64,6 @@ class TestUrl(TestCase):
     def test_url_logout(self):
         view = resolve('/qas_system/logout/')
         self.assertEqual(view.func, user_logout)
-
-    #####
 
 
 class TestModel(TestCase):
@@ -136,6 +126,10 @@ class TestSelect(TestCase):
         c = Client()
         response = c.post(reverse('qas_system:selecting'), {'subject': 7, 'sequencing': 2})
         self.assertEqual(response.status_code, 302)
+        response2 = c.post(reverse('qas_system:selecting'), {'subject': 7})
+        self.assertEqual(response2.status_code, 200)
+        response3 = c.post(reverse('qas_system:selecting'), {'sequencing': 2})
+        self.assertEqual(response3.status_code, 200)
 
 
 class TestQuestion(TestCase):
