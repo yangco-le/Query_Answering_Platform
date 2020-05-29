@@ -185,8 +185,8 @@ def select_result(request, sequencing, question_subject):
     '''
     问题筛选结果页面
     :param request: 请求
-    :param sequencing:
-    :param question_subject:
+    :param sequencing: 排序方式 0，1，2分别代表按浏览量降序、点赞量降序、发布时间降序排列
+    :param question_subject: 科目代码
     '''
     if sequencing == 0:
         select_result_list = Question.objects.filter(question_subject_id=question_subject).order_by('-page_views')
@@ -231,7 +231,7 @@ def all_question2(request, sequencing):
     '''
     浏览所有问题页面 3种排列顺序
     :param request: 请求
-    :param sequencing:
+    :param sequencing: 排序方式 0，1，2分别代表按浏览量降序、点赞量降序、发布时间降序排列
     '''
     if sequencing == 0:
         all_question_list = Question.objects.all().order_by('-page_views')
@@ -256,7 +256,6 @@ def question_comment(request, question_id):
     评论（问题）
     :param request: 请求
     :param question_id: 问题主键值id
-    :return:
     '''
     question = get_object_or_404(Question, id=question_id)
     if not request.session.get('is_login', None):
@@ -311,7 +310,6 @@ def question_good(request, question_id):
     给问题点赞
     :param request: 请求
     :param question_id: 问题主键值id
-    :return:
     '''
     question = Question.objects.filter(id=question_id).first()
     like_query = Good.objects.filter(good_question_id=question_id, good_by_id=request.session['user_id']).first()
@@ -370,7 +368,7 @@ def search(request):
 def search_subject(request):
     '''
     按科目搜索问题
-    :param request:
+    :param request: 请求
     '''
     sc = request.GET.get('search', None)
     context = None
@@ -401,8 +399,8 @@ def search_keyword(request):
 
 def search_both(request):
     '''
-
-    :param request:
+    搜索函数，按科目和关键词搜索
+    :param request: 请求
     '''
     try:
         user = models.User.objects.get(id=request.session['user_id'])

@@ -108,7 +108,7 @@
                  <span><a href="#" style="color: #0e0e0e">&nbsp;&nbsp;<strong>浏览量：{{ comment.question.page_views }}</strong></a></span>
 			</p>
             <p><strong>您在该问题下回答/评论了：</strong></p>
-                {{ comment.comment_text }}
+                {{ comment.comment_text | safe }}
         </div>
         <div class="page-header" contenteditable="true"></div>
     {% endfor %}
