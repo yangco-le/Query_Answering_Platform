@@ -20,17 +20,17 @@
 <div class="span8">
 <ul class="nav nav-pills">
 {% if sequencing == 1 %}
-  <li role="presentation"><a href="/qas_system/all_question/2/" style="height: 45px; line-height: 25px">最新更新</a></li>
-  <li role="presentation"><a href="/qas_system/all_question/0/" style="height: 45px; line-height: 25px">最多浏览</a></li>
-  <li role="presentation" class="active"><a href="/qas_system/all_question/1/" style="height: 45px; line-height: 25px">最多点赞</a></li>
+  <li role="presentation"><a href="/qas_system/select/2/{{ this_subject }}/" style="height: 45px; line-height: 25px">最新更新</a></li>
+  <li role="presentation"><a href="/qas_system/select/0/{{ this_subject }}/" style="height: 45px; line-height: 25px">最多浏览</a></li>
+  <li role="presentation" class="active"><a href="/qas_system/select/1/{{ this_subject }}/" style="height: 45px; line-height: 25px">最多点赞</a></li>
 {% elif sequencing == 0 %}
-  <li role="presentation"><a href="/qas_system/all_question/2/" style="height: 45px; line-height: 25px">最新更新</a></li>
-  <li role="presentation" class="active"><a href="/qas_system/all_question/0/" style="height: 45px; line-height: 25px" >最多浏览</a></li>
-  <li role="presentation"><a href="/qas_system/all_question/1/" style="height: 45px; line-height: 25px">最多点赞</a></li>
+  <li role="presentation"><a href="/qas_system/select/2/{{ this_subject }}/" style="height: 45px; line-height: 25px">最新更新</a></li>
+  <li role="presentation" class="active"><a href="/qas_system/select/0/{{ this_subject }}/" style="height: 45px; line-height: 25px" >最多浏览</a></li>
+  <li role="presentation"><a href="/qas_system/select/1/{{ this_subject }}/" style="height: 45px; line-height: 25px">最多点赞</a></li>
 {% else %}
-  <li role="presentation" class="active"><a href="/qas_system/all_question/2/" style="height: 45px; line-height: 25px">最新更新</a></li>
-  <li role="presentation"><a href="/qas_system/all_question/0/" style="height: 45px; line-height: 25px">最多浏览</a></li>
-  <li role="presentation"><a href="/qas_system/all_question/1/" style="height: 45px; line-height: 25px">最多点赞</a></li>
+  <li role="presentation" class="active"><a href="/qas_system/select/2/{{ this_subject }}/" style="height: 45px; line-height: 25px">最新更新</a></li>
+  <li role="presentation"><a href="/qas_system/select/0/{{ this_subject }}/" style="height: 45px; line-height: 25px">最多浏览</a></li>
+  <li role="presentation"><a href="/qas_system/select/1/{{ this_subject }}/" style="height: 45px; line-height: 25px">最多点赞</a></li>
 {% endif %}
   <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
   <li role="presentation" class="dropdown">
@@ -76,7 +76,7 @@
      </tr>
          {% endfor %}
      {% else %}
-         <tr><p>根据您的筛选条件未找到筛选结果，点击下面的链接返回。</p></tr>
+         <tr><p>您选择的科目暂无问题。</p></tr>
      {% endif %}
 	</tbody>
 
