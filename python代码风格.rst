@@ -22,7 +22,7 @@ Python风格规范
 
 不要使用反斜杠连接行.
 
-Python会将 `圆括号, 中括号和花括号中的行隐式的连接起来 <http://docs.python.org/2/reference/lexical_analysis.html#implicit-line-joining>`_ , 你可以利用这个特点. 如果需要, 你可以在表达式外围增加一对额外的圆括号. 
+Python会将 `圆括号, 中括号和花括号中的行隐式的连接起来，可以利用这个特点. 如果需要, 可以在表达式外围增加一对额外的圆括号. 
 
 .. code-block:: python
 
@@ -91,7 +91,7 @@ Python会将 `圆括号, 中括号和花括号中的行隐式的连接起来 <ht
 .. tip::
     用4个空格来缩进代码
     
-绝对不要用tab, 也不要tab和空格混用. 对于行连接的情况, 你应该要么垂直对齐换行的元素(见 :ref:`行长度 <line_length>` 部分的示例), 或者使用4空格的悬挂式缩进(这时第一行不应该有参数):
+绝对不要用tab, 也不要tab和空格混用. 对于行连接的情况, 你应该要么垂直对齐换行的元素, 或者使用4空格的悬挂式缩进(这时第一行不应该有参数):
          
 .. code-block:: python
 
@@ -237,16 +237,6 @@ Python会将 `圆括号, 中括号和花括号中的行隐式的连接起来 <ht
              "long_name": 2,
              }
           
-Shebang
---------------------
-
-.. tip::
-    大部分.py文件不必以#!作为文件的开始. 根据 `PEP-394 <http://www.python.org/dev/peps/pep-0394/>`_ , 程序的main文件应该以 #!/usr/bin/python2或者 #!/usr/bin/python3开始.
-
-(译者注: 在计算机科学中, `Shebang <http://en.wikipedia.org/wiki/Shebang_(Unix)>`_ (也称为Hashbang)是一个由井号和叹号构成的字符串行(#!), 其出现在文本文件的第一行的前两个字符. 在文件中存在Shebang的情况下, 类Unix操作系统的程序载入器会分析Shebang后的内容, 将这些内容作为解释器指令, 并调用该指令, 并将载有Shebang的文件路径作为该解释器的参数. 例如, 以指令#!/bin/sh开头的文件在执行时会实际调用/bin/sh程序.)
-
-#!先用于帮助内核找到Python解释器, 但是在导入模块时, 将会被忽略. 因此只有被直接执行的文件中才有必要加入#!.
-   
    
 .. _comments:  
  
@@ -258,8 +248,8 @@ Shebang
 
 **文档字符串**
 
-    Python有一种独一无二的的注释方式: 使用文档字符串. 文档字符串是包, 模块, 类或函数里的第一个语句. 这些字符串可以通过对象的__doc__成员被自动提取, 并且被pydoc所用. (你可以在你的模块上运行pydoc试一把, 看看它长什么样). 我们对文档字符串的惯例是使用三重双引号"""( `PEP-257 <http://www.python.org/dev/peps/pep-0257/>`_ ). 一个文档字符串应该这样组织: 首先是一行以句号, 问号或惊叹号结尾的概述(或者该文档字符串单纯只有一行). 接着是一个空行. 接着是文档字符串剩下的部分, 它应该与文档字符串的第一行的第一个引号对齐. 下面有更多文档字符串的格式化规范. 
-    
+    Python有一种独一无二的的注释方式: 使用文档字符串. 文档字符串是包, 模块, 类或函数里的第一个语句. 这些字符串可以通过对象的__doc__成员被自动提取, 并且被pydoc所用. (你可以在你的模块上运行pydoc试一把, 看看它长什么样). 我们对文档字符串的惯例是使用三重双引号""".
+
 **模块**
 
     每个文件应该包含一个许可样板. 根据项目使用的许可(例如, Apache 2.0, BSD, LGPL, GPL), 选择合适的样板.
@@ -270,24 +260,9 @@ Shebang
     
     一个函数必须要有文档字符串, 除非它满足以下条件:
     
-    #. 外部不可见
-    #. 非常短小
-    #. 简单明了
-    
     文档字符串应该包含函数做什么, 以及输入和输出的详细描述. 通常, 不应该描述"怎么做", 除非是一些复杂的算法. 文档字符串应该提供足够的信息, 当别人编写代码调用该函数时, 他不需要看一行代码, 只要看文档字符串就可以了. 对于复杂的代码, 在代码旁边加注释会比使用文档字符串更有意义.
     
     关于函数的几个方面应该在特定的小节中进行描述记录， 这几个方面如下文所述. 每节应该以一个标题行开始. 标题行以冒号结尾. 除标题行外, 节的其他内容应被缩进2个空格. 
-    
-    Args:
-        列出每个参数的名字, 并在名字后使用一个冒号和一个空格, 分隔对该参数的描述.如果描述太长超过了单行80字符,使用2或者4个空格的悬挂缩进(与文件其他部分保持一致).
-        描述应该包括所需的类型和含义.
-        如果一个函数接受*foo(可变长度参数列表)或者**bar (任意关键字参数), 应该详细列出*foo和**bar.
-
-    Returns: (或者 Yields: 用于生成器)
-        描述返回值的类型和语义. 如果函数返回None, 这一部分可以省略.
-
-    Raises:
-        列出与接口有关的所有异常.
 
     .. code-block:: python
 
@@ -322,36 +297,10 @@ Shebang
             """
             pass
 
-**类**
-            
-    类应该在其定义下有一个用于描述该类的文档字符串. 如果你的类有公共属性(Attributes), 那么文档中应该有一个属性(Attributes)段. 并且应该遵守和函数参数相同的格式.
-
-    .. code-block:: python
-
-        class SampleClass(object):
-            """Summary of class here.
-
-            Longer class information....
-            Longer class information....
-
-            Attributes:
-                likes_spam: A boolean indicating if we like SPAM or not.
-                eggs: An integer count of the eggs we have laid.
-            """
-
-            def __init__(self, likes_spam=False):
-                """Inits SampleClass with blah."""
-                self.likes_spam = likes_spam
-                self.eggs = 0
-
-            def public_method(self):
-                """Performs operation blah."""
-
-                
 
 **块注释和行注释**
 
-    最需要写注释的是代码中那些技巧性的部分. 如果你在下次 `代码审查 <http://en.wikipedia.org/wiki/Code_review>`_ 的时候必须解释一下, 那么你应该现在就给它写注释. 对于复杂的操作, 应该在其操作开始前写上若干行注释. 对于不是一目了然的代码, 应在其行尾添加注释. 
+    最需要写注释的是代码中那些技巧性的部分. 如果你在下次代码审查的时候必须解释一下, 那么你应该现在就给它写注释. 对于复杂的操作, 应该在其操作开始前写上若干行注释. 对于不是一目了然的代码, 应在其行尾添加注释. 
 
     .. code-block:: python
 
@@ -372,40 +321,6 @@ Shebang
         # the next element is i+1
     
     
-类
---------------------
-
-.. tip::
-    如果一个类不继承自其它类, 就显式的从object继承. 嵌套类也一样.
-            
-.. code-block:: python
-
-    Yes: class SampleClass(object):
-             pass
-
-
-         class OuterClass(object):
-
-             class InnerClass(object):
-                 pass
-
-
-         class ChildClass(ParentClass):
-             """Explicitly inherits from another class already."""
-    
-.. code-block:: python
-    
-    No: class SampleClass:
-            pass
-
-
-        class OuterClass:
-
-            class InnerClass:
-                pass
-
-继承自 ``object`` 是为了使属性(properties)正常工作, 并且这样可以保护你的代码, 使其不受 `PEP-3000 <http://www.python.org/dev/peps/pep-3000/>`_ 的一个特殊的潜在不兼容性影响. 这样做也定义了一些特殊的方法, 这些方法实现了对象的默认语义, 包括 ``__new__, __init__, __delattr__, __getattribute__, __setattr__, __hash__, __repr__, and __str__`` .
-
 字符串
 --------------------
 
@@ -476,60 +391,7 @@ Shebang
           print """This is pretty ugly.
       Don't do this.
       """
-
-文件和sockets
---------------------
-
-.. tip::
-    在文件和sockets结束时, 显式的关闭它.
-
-除文件外, sockets或其他类似文件的对象在没有必要的情况下打开, 会有许多副作用, 例如:
-
-#. 它们可能会消耗有限的系统资源, 如文件描述符. 如果这些资源在使用后没有及时归还系统, 那么用于处理这些对象的代码会将资源消耗殆尽.
-#. 持有文件将会阻止对于文件的其他诸如移动、删除之类的操作.
-#. 仅仅是从逻辑上关闭文件和sockets, 那么它们仍然可能会被其共享的程序在无意中进行读或者写操作. 只有当它们真正被关闭后, 对于它们尝试进行读或者写操作将会抛出异常, 并使得问题快速显现出来.
-
-而且, 幻想当文件对象析构时, 文件和sockets会自动关闭, 试图将文件对象的生命周期和文件的状态绑定在一起的想法, 都是不现实的. 因为有如下原因: 
-
-#. 没有任何方法可以确保运行环境会真正的执行文件的析构. 不同的Python实现采用不同的内存管理技术, 比如延时垃圾处理机制. 延时垃圾处理机制可能会导致对象生命周期被任意无限制的延长.
-
-#. 对于文件意外的引用,会导致对于文件的持有时间超出预期(比如对于异常的跟踪, 包含有全局变量等).
-
-推荐使用 `"with"语句 <http://docs.python.org/reference/compound_stmts.html#the-with-statement>`_ 以管理文件:
-
-.. code-block:: python
-
-      with open("hello.txt") as hello_file:
-          for line in hello_file:
-              print line
-
-对于不支持使用"with"语句的类似文件的对象,使用 contextlib.closing():
-
-.. code-block:: python
-
-      import contextlib
-      
-      with contextlib.closing(urllib.urlopen("http://www.python.org/")) as front_page:
-          for line in front_page:
-              print line
-              
-Legacy AppEngine 中Python 2.5的代码如使用"with"语句, 需要添加 "from __future__ import with_statement".
-
              
-TODO注释
---------------------
-
-.. tip::
-    为临时代码使用TODO注释, 它是一种短期解决方案. 不算完美, 但够好了.
-
-TODO注释应该在所有开头处包含"TODO"字符串, 紧跟着是用括号括起来的你的名字, email地址或其它标识符. 然后是一个可选的冒号. 接着必须有一行注释, 解释要做什么. 主要目的是为了有一个统一的TODO格式, 这样添加注释的人就可以搜索到(并可以按需提供更多细节). 写了TODO注释并不保证写的人会亲自解决问题. 当你写了一个TODO, 请注上你的名字. 
-
-.. code-block:: python    
-
-    # TODO(kl@gmail.com): Use a "*" here for string repetition.
-    # TODO(Zeke) Change this to use relations.
-    
-如果你的TODO是"将来做某事"的形式, 那么请确保你包含了一个指定的日期("2009年11月解决")或者一个特定的事件("等到所有的客户都可以处理XML请求就移除这些代码"). 
 
 导入格式
 --------------------
