@@ -1,20 +1,21 @@
 <img src="https://github.com/yangco-le/query_answering_system/blob/master/img-folder/20200424182322.png" align="middle" />
 
-# 课业讨论系统
-Query & Answer System for SJTU
+# Query & Answer System for SJTU
 
 
-### 项目选定
-“课业讨论系统”网页开发。开发前端使用`html`、`js`及`css`实现，选用`bootstrap`框架，后端选用`django`框架，使用`python`语言进行实现。
-### 用户类别
-提出问题的学生，解答问题的学生或老师，系统管理员。
-### 主要功能
-* 注册登录 ：用户可以注册账号并使用注册的账号进行登录，或者以游客的身份进行登录；
-* 发帖功能：发帖人将自己的疑难困惑问题以帖子的形式发出，发帖人需要按其提出的问题所属的课程进行分类（其中课程由管理员手动添加。若系统中暂无该课程，用户可申请管理员添加）；
-* 回复功能：用户可以在帖子下面进行回复讨论；
-* 修改删除：用户对于自己发的问题可以进行修改删除；
-* 搜索功能：用户可以通过关键词搜索及课程名搜索其他用户提出的问题及其回复，可以迅速找到自己所需要查询的问题进行浏览；
-* 举报功能：对于违反有关法律和校规校纪的帖子，用户可以进行举报。管理员进行核实之后对被举报的帖子进行删除；
-* 点赞功能：用户对于优质帖子可以进行点赞，获赞较多的帖子可以被选择为优先出现；
-* 收藏功能：用户可以对问题进行收藏，收藏的问题将出现在个人主页中；
-* 用户主页：用户可以通过自己的主页设置修改自己的个人资料，查看自己提出的问题及其回复。同时，用户可以在主页查看自己收藏的帖子。
+### Technical Description
+The development front end is implemented using `html`, `js` and `css`, using the `bootstrap` framework, and the back end using the `django` framework, using the `python` language for implementation.
+
+### Type of Users
+The student who asked the question, the student or teacher who answered the question, the system administrator.
+
+### Main Functions
+* Register and log in: Users can register an account and log in with the registered account, or log in as a tourist.
+* Posting function: The poster will send out his own difficult and confused questions in the form of a post. The poster needs to be classified according to the course to which the question belongs (The course is manually added by the administrator. If there is no such course in the system, the user can apply to the administrator to add it).
+* Reply function: users can reply and discuss under the post.
+* Modify and delete: Users can modify and delete the questions they post.
+* Search function: Users can search for questions raised by other users and their responses through keyword search and course name, and can quickly find the questions they need to query for browsing.
+* Reporting function: Users can report posts that violate relevant laws and school rules. The administrator will delete the reported post after verification.
+* Like function: Users can like high-quality posts, and posts with more likes can be selected as priority.
+* Collection function: Users can bookmark questions, and the bookmarked questions will appear on the personal homepage.
+* User homepage: Users can modify their personal information through their homepage settings, view their questions and their responses. At the same time, users can view their favorite posts on the homepage.
