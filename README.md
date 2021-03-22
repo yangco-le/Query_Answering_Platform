@@ -19,3 +19,23 @@ The student who asked the question, the student or teacher who answered the ques
 * Like function: Users can like high-quality posts, and posts with more likes can be selected as priority.
 * Collection function: Users can bookmark questions, and the bookmarked questions will appear on the personal homepage.
 * User homepage: Users can modify their personal information through their homepage settings, view their questions and their responses. At the same time, users can view their favorite posts on the homepage.
+
+### Screenshot
+<img src="img-folder/1.jpg" align="middle" />
+<img src="img-folder/2.jpg" align="middle" />
+<img src="img-folder/3.jpg" align="middle" />
+<img src="img-folder/4.jpg" align="middle" />
+<img src="img-folder/5.jpg" align="middle" />
+<img src="img-folder/6.jpg" align="middle" />
+
+### Contributor and Maintainer
+[@yangco-le](https://github.com/yangco-le)
+[@852406797](https://github.com/852406797)
+[@huanghsly](https://github.com/huanghsly)
+[@tsugutsugu-ai](https://github.com/tsugutsugu-ai)
+[@TimVentimiglia](https://github.com/TimVentimiglia)
+[@Chinashaoyu](https://github.com/Chinashaoyu)
+
+### License
+
+[MIT](LICENSE) © Richard Littauer
