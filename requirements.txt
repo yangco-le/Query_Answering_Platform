@@ -2,7 +2,7 @@ Django==3.0.14
 asgiref==3.2.7
 django-ckeditor==5.9.0
 django-js-asset==1.2.2
-pip==20.0.2
+pip==21.1
 pytz==2019.3
 setuptools==40.8.0
 sqlparse==0.3.1
