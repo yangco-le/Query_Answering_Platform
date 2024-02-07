@@ -1,4 +1,4 @@
-Django==3.1.14
+Django==3.2.24
 asgiref==3.2.7
 django-ckeditor==5.9.0
 django-js-asset==1.2.2
